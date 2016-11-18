@@ -1,0 +1,13 @@
+*.egg-info/
+*.egg
+*.py[co]
+
+.tox/
+.cache/
+.coverage
+
+__pycache__/
+_build/
+build/
+dist/
+htmlcov/
