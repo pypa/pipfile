@@ -1,0 +1,28 @@
+language: python
+python: 3.4
+
+sudo: false
+
+env:
+  - TOXENV=py26
+  - TOXENV=py27
+  - TOXENV=py33
+  - TOXENV=py34
+  - TOXENV=pypy
+  - TOXENV=pep8
+  - TOXENV=py2pep8
+  - TOXENV=docs
+  - TOXENV=packaging
+
+install:
+  - pip install tox
+
+script:
+  - tox
+
+notifications:
+  irc:
+    channels:
+      - "irc.freenode.org#pypa-dev"
+    use_notice: true
+    skip_join: true
