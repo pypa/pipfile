@@ -1,7 +1,7 @@
 Pipfile
 =======
 
-**Warning**: this project is under active development. 
+**Warning**: this project is under active development.
 
 A ``Pipfile`` is a new (and much better!) way to declare dependencies for your Python applications. It will be a full replacement for the well-pervasive `requirements.txt` files, currently installable with ``$ pip install -r``.
 
@@ -10,7 +10,7 @@ The Concept
 
 A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of ways:
 
-- Expressive Python syntax for declaring all types of Python dependencies. 
+- Expressive Python syntax for declaring all types of Python dependencies.
 - Grouping of sub-dependency groups (e.g. a ``testing`` group).
 - Use of a single file only will be extremely encouraged.
 - ``Pipfile.lock``
@@ -22,14 +22,14 @@ Example Pipfile
 Note—this is an evolving work in progress::
 
   # Note: There will be a default source, and context manager can also be used.
-  source("https://simple.crate.io/", verify_ssl=True)
-  
-  dist("requests")
-  dist("Django", "==1.6")  
-  dist("pinax", git="git://github.com/pinax/pinax.git", ref="1.4", editable=True) 
-  
-  with group("development"):
-    dist("nose")
+  source('https://simple.crate.io/', verify_ssl=True)
+
+  dist('requests')
+  dist('Django', '==1.6')
+  dist('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
+
+  with group('development'):
+    dist('nose')
 
 Example Pipfile.lock
 ++++++++++++++++++++
@@ -61,7 +61,7 @@ Useful Links
 Documentation
 -------------
 
-The `documentation`_ for this project will (eventually) reside at pypi.org. 
+The `documentation`_ for this project will (eventually) reside at pypi.org.
 
 
 Discussion
