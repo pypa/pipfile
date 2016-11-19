@@ -11,10 +11,15 @@ The Concept
 A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of ways:
 
 - Expressive Python syntax for declaring all types of Python dependencies. 
-- Grouping of sub-dependency groups (e.g. a ``testing`` group)
+- Grouping of sub-dependency groups (e.g. a ``testing`` group).
 - Use of a single file only will be extremely encouraged.
 - ``Pipfile.lock``
 
+Useful Links
+------------
+
+- `pypa/pip#1795: Requirements 2.0 <https://github.com/pypa/pip/issues/1795>`_
+- `Basic Concept Gist <https://gist.github.com/kennethreitz/4745d35e57108f5b766b8f6ff396de85>`_ (fork of @dstufft's)
 
 Documentation
 -------------
