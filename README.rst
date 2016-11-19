@@ -1,11 +1,25 @@
 Pipfile
 =======
 
+**Warning**: this project is under active development. 
+
+A ``Pipfile`` is a new (and much better!) way to declare dependencies for your Python applications. It will be a full replacement for the well-pervasive `requirements.txt` files, currently installable with ``$ pip install -r``.
+
+The Concept
+-----------
+
+A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of ways:
+
+- Expressive Python syntax for declaring all types of Python dependencies. 
+- Grouping of sub-dependency groups (e.g. a ``testing`` group)
+- Use of a single file only will be extremely encouraged.
+- ``Pipfile.lock``
+
 
 Documentation
 -------------
 
-`documentation`_
+The `documentation`_ for this project will (eventually) reside at pypi.org. 
 
 
 Discussion
