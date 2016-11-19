@@ -15,6 +15,38 @@ A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of way
 - Use of a single file only will be extremely encouraged.
 - ``Pipfile.lock``
 
+
+Example Pipfile
++++++++++++++++
+
+Example Pipfile.lock
+++++++++++++++++++++
+
+Note—this file is always to be generated, not modified or constructed by a user::
+
+  {
+      "_meta": {
+          "sources": [
+              {"url": "https://simple.crate.io/"},
+              {"url": "https://pypi.python.org/simple/", "verify_ssl": false},
+          ]
+       },
+      "default": [
+          {"name": "requests", "version": "0.11.2", "hash": "...."},
+          {"name": "Django", "version": "1.4", "hash": "..."},
+          {"name": "pinax", "git": "git://....", "branch": "1.4"},
+          {"name": "crate", "path": "~/blech", "editable": true}
+      ],
+      "development": [
+          {"name": "test", "version": "0.1", "hash": "..."},
+          {"name": "test2", "version": "2.0", "hash": "..."},
+          {"name": "another thing", "version": "3.5", "hash": "..."}
+      ],
+      "testing": [
+          {"name": "test", "version": "0.1", "hash": "..."}
+      ]
+  }
+
 Useful Links
 ------------
 
