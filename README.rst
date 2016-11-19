@@ -19,6 +19,18 @@ A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of way
 Example Pipfile
 +++++++++++++++
 
+Note—this is an evolving work in progress::
+
+  # Note: There will be a default source, and context manager can also be used.
+  source("https://simple.crate.io/", verify_ssl=True)
+  
+  dist("requests")
+  dist("Django", "==1.6")  
+  dist("pinax", git="git://github.com/pinax/pinax.git", ref="1.4", editable=True) 
+  
+  with group("development"):
+    dist("nose")
+
 Example Pipfile.lock
 ++++++++++++++++++++
 
@@ -27,23 +39,16 @@ Note—this file is always to be generated, not modified or constructed by a use
   {
       "_meta": {
           "sources": [
-              {"url": "https://simple.crate.io/"},
-              {"url": "https://pypi.python.org/simple/", "verify_ssl": false},
+              {"url": "https://simple.crate.io/", "verify_ssl": true},
           ]
        },
       "default": [
           {"name": "requests", "version": "0.11.2", "hash": "...."},
-          {"name": "Django", "version": "1.4", "hash": "..."},
-          {"name": "pinax", "git": "git://....", "branch": "1.4"},
-          {"name": "crate", "path": "~/blech", "editable": true}
+          {"name": "Django", "version": "1.6", "hash": "..."},
+          {"name": "pinax", "git": "git://....", "ref": "1.4", "editable": true},
       ],
       "development": [
-          {"name": "test", "version": "0.1", "hash": "..."},
-          {"name": "test2", "version": "2.0", "hash": "..."},
-          {"name": "another thing", "version": "3.5", "hash": "..."}
-      ],
-      "testing": [
-          {"name": "test", "version": "0.1", "hash": "..."}
+          {"name": "nose", "version": "1.3.7", "hash": "..."},
       ]
   }
 
