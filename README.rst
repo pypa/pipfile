@@ -3,7 +3,9 @@ Pipfile
 
 **Warning**: this project is under active development.
 
-A ``Pipfile`` is a new (and much better!) way to declare dependencies for your Python environment, e.g. deployment of a web application. It will be a full replacement for the well-pervasive `requirements.txt` files, currently installable with ``$ pip install -r``.
+A ``Pipfile`` is a new (and much better!) way to declare dependencies for your Python environment (e.g. deployment of a web application). It will be a full replacement for the well-pervasive `requirements.txt` files, currently installable with ``$ pip install -r``.
+
+This is a concept project that will eventually be built into pip itself, once built out and finalized.
 
 The Concept
 -----------
