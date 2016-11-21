@@ -22,7 +22,7 @@ Example Pipfile
 Note—this is an evolving work in progress::
 
   # Note: There will be a default source, and context manager can also be used.
-  source('https://simple.crate.io/', verify_ssl=True)
+  source('https://pypi.org/', verify_ssl=True)
 
   dist('requests')
   dist('Django', '==1.6')
@@ -39,13 +39,13 @@ Note—this file is always to be generated, not modified or constructed by a use
   {
       "_meta": {
           "sources": [
-              {"url": "https://simple.crate.io/", "verify_ssl": true},
+              {"url": "https://pypi.org/", "verify_ssl": true},
           ]
        },
       "default": [
-          {"name": "requests", "version": "0.11.2", "hash": "...."},
+          {"name": "requests", "version": "0.11.2", "hash": "..."},
           {"name": "Django", "version": "1.6", "hash": "..."},
-          {"name": "pinax", "git": "git://....", "ref": "1.4", "editable": true},
+          {"name": "pinax", "git": "git://...", "ref": "1.4", "editable": true},
       ],
       "development": [
           {"name": "nose", "version": "1.3.7", "hash": "..."},
