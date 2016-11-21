@@ -24,12 +24,12 @@ Note—this is an evolving work in progress::
   # Note: There will be a default source, and context manager can also be used.
   source('https://pypi.org/', verify_ssl=True)
 
-  dist('requests')
-  dist('Django', '==1.6')
-  dist('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
+  package('requests')
+  package('Django', '==1.6')
+  package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
 
   with group('development'):
-    dist('nose')
+    package('nose')
 
 Example Pipfile.lock
 ++++++++++++++++++++
