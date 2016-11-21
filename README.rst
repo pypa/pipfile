@@ -31,9 +31,7 @@ Note—this is an evolving work in progress::
   package('requests')
   package('Django', '==1.6')
   package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
-
-  with group('development'):
-    package('nose')
+  dev-package('nose')
 
 Example Pipfile.lock
 ++++++++++++++++++++
