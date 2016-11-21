@@ -31,7 +31,7 @@ Note—this is an evolving work in progress::
   package('requests')
   package('Django', '==1.6')
   package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
-  dev-package('nose')
+  dev_package('nose')
 
 Example Pipfile.lock
 ++++++++++++++++++++
@@ -59,19 +59,15 @@ Example Pip Integration (Eventually)
 ++++++++++++++++++++++++++++++++++++
 
 Install packages from ``Pipfile``::
-
-    # -p defaults to 'Pipfile', can be otherwise specified.
     
     $ pip install -p
-    ! Warning: Pipfile.lock is out of date.
+    ! Warning: Pipfile.lock (48d35f) is out of date. Updating to (73d81f).
     Installing packages from Pipfile.lock...
     
+Notes::
+
+    # -p defaults to 'Pipfile', can be otherwise specified.
     # Pipfile.lock will be written automatically if it does not exist. 
-    
-    
-    $ pip lock
-    Collecting packages...
-    Pipfile.lock (73d81f) writen to disk.
     
 
 Useful Links
