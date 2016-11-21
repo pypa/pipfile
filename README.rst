@@ -42,7 +42,7 @@ Note—this file is always to be generated, not modified or constructed by a use
 
   {
       "_meta": {
-          "Pipfile-sha1": "202fc2b96b7c816a7b9154d5b356deb6e80ca6df",
+          "Pipfile-sha256": "73d81f4fbe42d1da158c5d4435d921121a4a1013b2f0dfed95367f3c742b88c6",
           "sources": [
               {"url": "https://pypi.org/", "verify_ssl": true},
           ]
@@ -62,14 +62,18 @@ Example Pip Integration (Eventually)
 
 Install packages from ``Pipfile``::
 
-    # -p defaults to 'Pipfile', can be otherwise specified. 
+    # -p defaults to 'Pipfile', can be otherwise specified.
+    
     $ pip install -p
     ! Warning: Pipfile.lock is out of date.
     Installing packages from Pipfile.lock...
     
+    # Pipfile.lock will be written automatically if it does not exist. 
+    
+    
     $ pip lock
     Collecting packages...
-    Pipfile.lock (202fc2b96b7c816a7b9154d5b356deb6e80ca6df) writen to disk.
+    Pipfile.lock (73d81f) writen to disk.
     
 
 Useful Links
