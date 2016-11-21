@@ -57,6 +57,21 @@ Note—this file is always to be generated, not modified or constructed by a use
       ]
   }
 
+Example Pip Integration (Eventually)
+++++++++++++++++++++++++++++++++++++
+
+Install packages from ``Pipfile``::
+
+    # -p defaults to 'Pipfile', can be otherwise specified. 
+    $ pip install -p
+    ! Warning: Pipfile.lock is out of date.
+    Installing packages from Pipfile.lock...
+    
+    $ pip lock
+    Collecting packages...
+    Pipfile.lock (202fc2b96b7c816a7b9154d5b356deb6e80ca6df) writen to disk.
+    
+
 Useful Links
 ------------
 
