@@ -42,6 +42,7 @@ Note—this file is always to be generated, not modified or constructed by a use
 
   {
       "_meta": {
+          "Pipfile-sha1": "202fc2b96b7c816a7b9154d5b356deb6e80ca6df",
           "sources": [
               {"url": "https://pypi.org/", "verify_ssl": true},
           ]
