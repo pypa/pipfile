@@ -64,10 +64,18 @@ Install packages from ``Pipfile``::
     ! Warning: Pipfile.lock (48d35f) is out of date. Updating to (73d81f).
     Installing packages from Pipfile.lock...
     
+    # Manually update lockfile.
+    $ pip freeze -p Pipfile
+    Pipfile.lock (73d81f) written to disk.
+    
 Notes::
 
-    # -p defaults to 'Pipfile', can be otherwise specified.
-    # Pipfile.lock will be written automatically if it does not exist. 
+    # -p accepts a path argument, which defaults to 'Pipfile'.
+    # Pipfile.lock will be written automatically during `install -p` if it does not exist. 
+    
+Ideas::
+
+- Resursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare. 
     
 
 Useful Links
