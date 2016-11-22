@@ -34,10 +34,12 @@ ways:
 
 * Expressive syntax for declaring all types of Python dependencies
 * One file, not many
+
   * Existing requirements files tend to proliferate into e.g.
     ``dev-requirements.txt``, ``test-requirements.txt``, etc., but a
     ``Pipfile`` will allow seamlessly specifying groups of dependencies
     in one place
+
 * Fully specified environments in the form of ``Pipfile.lock``
 
 
