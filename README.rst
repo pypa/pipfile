@@ -62,6 +62,8 @@ Note—this is an evolving work in progress::
   package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
   dev_package('nose')
 
+The second parameter to `package` can be used positionally, but is named `version`.
+
 Example Pipfile.lock
 ++++++++++++++++++++
 
