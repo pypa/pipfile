@@ -33,7 +33,7 @@ The Concept
 A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of
 ways:
 
-* Expressive syntax for declaring all types of Python dependencies
+* Python-like syntax for declaring all types of Python dependencies.
 * One Pipfile (as opposed to multiple ``requirements.txt`` files).
 
   * Existing requirements files tend to proliferate into e.g.
@@ -84,6 +84,27 @@ user::
           {"name": "nose", "version": "1.3.7", "hash": "..."},
       ]
   }
+
+Why not TOML & Friends?
+///////////////////////
+
+TOML is an attractive option for ``Pipfile``, especially with the recent
+`PEP 518 (pyproject.tml) <PEP 518>`_ plans that are in place.
+
+Don't worry — this and other formats are possibly being considered for
+the contents ``Pipfile``.
+
+The focus at the moment is on getting the Python representation perfect before
+proceeding with true prototypes with existing markup languages.  However,
+we are optimizing for *ease of typing* for the end-user (no googling
+required!), so the Python-esque syntax will likely exist (at this time) in
+the final version.
+
+It's all about making an API for Humans, first. Machines, second. Ideally,
+both of these. If a Python-esque syntax is settled on, a parser (this library,
+actually) will be readily available and may have a command-line utilitity for
+converting the representation to JSON.
+
 
 Example Pip Integration (Eventually)
 ++++++++++++++++++++++++++++++++++++
