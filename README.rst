@@ -130,7 +130,7 @@ Notes::
 
 Ideas::
 
-- Resursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare.
+- Recursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare.
 
 
 Useful Links
