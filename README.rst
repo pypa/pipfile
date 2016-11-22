@@ -84,6 +84,11 @@ Useful Links
 - `pypa/pip#1795: Requirements 2.0 <https://github.com/pypa/pip/issues/1795>`_
 - `Basic Concept Gist <https://gist.github.com/kennethreitz/4745d35e57108f5b766b8f6ff396de85>`_ (fork of @dstufft's)
 
+Prior Art
++++++++++
+
+- `nvie/pip-tools: A set of tools to keep your pinned Python dependencies fresh. <https://github.com/nvie/pip-tools>`
+
 Documentation
 -------------
 
