@@ -8,13 +8,14 @@ replacement for `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
 files.
 
 Specifically, for a Python package, a ``Pipfile`` allows developers to specify
-*concrete* sets of its dependencies, their locations, and their loose version
+*concrete* and sets of dependencies, their locations, and their loose version
 constraints. A ``Pipfile.lock`` can then be automatically generated during
 package installation to fully specify an exact set of known working versions,
 and future installations may refer to the ``Pipfile.lock`` to recreate the
-exact contents of the environment. A deployed web application, for instance,
-can be completely redeployed with the same exact versions of all recursive
-dependencies, by referencing the ``Pipfile.lock`` file.
+exact contents of the environment in a *deterministic* manner. A deployed web
+application, for instance, can be completely redeployed with the same exact
+versions of all recursive dependencies, by referencing the ``Pipfile.lock``
+file.
 
 ``pip`` will grow a new command line option, ``-p`` / ``--pipfile``  to install
 the versions specified in a ``Pipfile``, similar to its existing ``-r`` /
@@ -24,7 +25,7 @@ This repository contains the design specification of the ``Pipfile`` format, as
 well as (soon) an implementation of a parser for the specification which can be
 used by `pip <https://github.com/pypa/pip>`_ and any other consumer, once the
 API (including the form of a ``Pipfile`` itself) has been built out and
-finalized. 
+finalized.
 
 The Concept
 -----------
@@ -33,14 +34,19 @@ A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of
 ways:
 
 * Expressive syntax for declaring all types of Python dependencies
-* One file, not many
+* One Pipfile (as opposed to multiple ``requirements.txt`` files).
 
   * Existing requirements files tend to proliferate into e.g.
     ``dev-requirements.txt``, ``test-requirements.txt``, etc., but a
     ``Pipfile`` will allow seamlessly specifying groups of dependencies
-    in one place
+    in one place.
+  * This will be surfaces as only two built-in groups (*default* &
+    *development*).
+  * Custom groups may be addeded in the future. Remember, it is easier
+    to add features in the future than it is to remove them.
 
-* Fully specified environments in the form of ``Pipfile.lock``
+* Fully specified (and *deterministic*) environments in the form of
+  ``Pipfile.lock``.
 
 
 Example Pipfile
@@ -83,24 +89,24 @@ Example Pip Integration (Eventually)
 ++++++++++++++++++++++++++++++++++++
 
 Install packages from ``Pipfile``::
-    
+
     $ pip install -p
     ! Warning: Pipfile.lock (48d35f) is out of date. Updating to (73d81f).
     Installing packages from Pipfile.lock...
-    
+
     # Manually update lockfile.
     $ pip freeze -p Pipfile
     Pipfile.lock (73d81f) written to disk.
-    
+
 Notes::
 
     # -p accepts a path argument, which defaults to 'Pipfile'.
-    # Pipfile.lock will be written automatically during `install -p` if it does not exist. 
-    
+    # Pipfile.lock will be written automatically during `install -p` if it does not exist.
+
 Ideas::
 
-- Resursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare. 
-    
+- Resursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare.
+
 
 Useful Links
 ------------
@@ -108,10 +114,11 @@ Useful Links
 - `pypa/pip#1795: Requirements 2.0 <https://github.com/pypa/pip/issues/1795>`_
 - `Basic Concept Gist <https://gist.github.com/kennethreitz/4745d35e57108f5b766b8f6ff396de85>`_ (fork of @dstufft's)
 
-Prior Art
-+++++++++
+Inspirations
+++++++++++++
 
-- `nvie/pip-tools: A set of tools to keep your pinned Python dependencies fresh. <https://github.com/nvie/pip-tools>`
+- `nvie/pip-tools: A set of tools to keep your pinned Python dependencies fresh. <https://github.com/nvie/pip-tools>`_
+- `A Better Pip Workflow by Kenneth Reitz <https://www.kennethreitz.org/essays/a-better-pip-workflow>`_
 
 Documentation
 -------------
