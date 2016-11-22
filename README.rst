@@ -97,7 +97,7 @@ the contents ``Pipfile``.
 The focus at the moment is on getting the Python representation perfect before
 proceeding with true `prototypes <https://gist.github.com/kennethreitz/9319936c301be5c01f6da04e518d2cf3>`_
 with existing markup languages.  However, we are optimizing for *ease of typing* for the end-user (**no
-googling/boilerplate/copypasta required!**), so the Python-esque syntax
+googling / boilerplate / copypasta required!**), so the Python-esque syntax
 (AST-powered) will, at this time, likely exist in the final version. But,
 this is being constantly re-evaluated.
 
