@@ -101,9 +101,9 @@ required!), so the Python-esque syntax will likely exist (at this time) in
 the final version.
 
 It's all about making an API for Humans, first. Machines, second. Ideally,
-both of these. If a Python-esque syntax is settled on, a parser (this library,
-actually) will be readily available and may have a command-line utilitity for
-converting the representation to JSON.
+both of these can co-exist in harmony. For example, if this Python-esque syntax
+is settled on, a parser (this library, actually) will be readily available and
+may have a command-line utilitity for converting the representation to JSON.
 
 
 Example Pip Integration (Eventually)
