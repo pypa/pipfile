@@ -43,7 +43,10 @@ ways:
   * This will be surfaces as only two built-in groups (*default* &
     *development*).
   * Custom groups may be addeded in the future. Remember, it is easier
-    to add features in the future than it is to remove them.
+    to add features in the future than it is to remove them. The Composer
+    community has been successful with only *default* and *development*
+    as group options for many years — I'd like to follow this model, at
+    first.
 
 * Fully specified (and *deterministic*) environments in the form of
   ``Pipfile.lock``.
@@ -144,6 +147,7 @@ Inspirations
 
 - `nvie/pip-tools: A set of tools to keep your pinned Python dependencies fresh. <https://github.com/nvie/pip-tools>`_
 - `A Better Pip Workflow by Kenneth Reitz <https://www.kennethreitz.org/essays/a-better-pip-workflow>`_
+- Taking lessons-learned from Composer, Cargo, Yarn, NPM, Bundler, and friends.
 
 Documentation
 -------------
