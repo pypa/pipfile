@@ -7,7 +7,7 @@ A ``Pipfile`` is a new (and much better!) way to declare dependencies for your P
 
 This is a concept project that will eventually be built into `pip <https://github.com/pypa/pip>`_ itself, once the API (including the form of a `Pipfile` itself) has been built out and finalized. 
 
-Remember, the important part here is `Pipfile.lock`. It allows deterministic builds. Today's `requirements.txt` can do this, and should, but often doesn't, when version specifiers aren't provided. This efforts will provide a much more pleasant user experience. 
+Remember, the important part here is `Pipfile.lock`. It allows deterministic builds. Today's `requirements.txt` can do this, and should, but often doesn't, when version specifiers aren't provided. This effort will provide a much more pleasant user experience. 
 
 The Concept
 -----------
