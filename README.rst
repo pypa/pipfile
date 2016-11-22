@@ -32,13 +32,13 @@ The Concept
 A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of
 ways:
 
-- Expressive syntax for declaring all types of Python dependencies
-- One file, not many
-  - Existing requirements files tend to proliferate into e.g.
+* Expressive syntax for declaring all types of Python dependencies
+* One file, not many
+  * Existing requirements files tend to proliferate into e.g.
     ``dev-requirements.txt``, ``test-requirements.txt``, etc., but a
     ``Pipfile`` will allow seamlessly specifying groups of dependencies
     in one place
-- Fully specified environments in the form of ``Pipfile.lock``
+* Fully specified environments in the form of ``Pipfile.lock``
 
 
 Example Pipfile
