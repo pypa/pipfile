@@ -57,8 +57,8 @@ Note—this is an evolving work in progress::
   # Note: There will be a default source, and context manager can also be used.
   source('https://pypi.org/', verify_ssl=True)
 
-  package('requests')
-  package('Django', '==1.6')
+  package('requests' extras=['socks'])
+  package('Django', '>1.10')
   package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
   dev_package('nose')
 
@@ -76,9 +76,10 @@ user::
           ]
        },
       "default": [
-          {"name": "requests", "version": "0.11.2", "hash": "..."},
-          {"name": "Django", "version": "1.6", "hash": "..."},
+          {"name": "Django", "version": "1.10.3", "hash": "..."},
+          {"name": "requests", version": "2.12.1", "hash": "..."},
           {"name": "pinax", "git": "git://...", "ref": "1.4", "editable": true},
+          {"name": "PySocks", "version": "1.5.6", "hash": "..."},
       ],
       "development": [
           {"name": "nose", "version": "1.3.7", "hash": "..."},
