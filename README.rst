@@ -60,7 +60,7 @@ Note—this is an evolving work in progress::
   # Note: There will be a default source, and context manager can also be used.
   source('https://pypi.org/', verify_ssl=True)
 
-  package('requests' extras=['socks'])
+  package('requests', extras=['socks'])
   package('Django', '>1.10')
   package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
   dev_package('nose')
