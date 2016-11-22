@@ -42,7 +42,7 @@ ways:
     in one place.
   * This will be surfaces as only two built-in groups (*default* &
     *development*).
-  * Custom groups may be addeded in the future. Remember, it is easier
+  * Custom groups may be added in the future. Remember, it is easier
     to add features in the future than it is to remove them. The Composer
     community has been successful with only *default* and *development*
     as group options for many years — I'd like to follow this model, at
@@ -74,7 +74,7 @@ Notes:
   ``requires(marker, specifier)`` will be allowed, but discouraged in favor for a small
   selection of built-ins for standard use-cases (e.g. python version, platform). This
   functionality may not be readily used, as it is only to assert (and therefore abort,
-  if appropriate) installation on certian platforms (e.g. windows).
+  if appropriate) installation on certain platforms (e.g. windows).
 
 Other / lower-level functions::
 
