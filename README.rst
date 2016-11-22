@@ -3,16 +3,25 @@ Pipfile
 
 **Warning**: this project is under active development.
 
-A ``Pipfile`` is a new (and much better!) way to declare dependencies for your Python environment (e.g. deployment of a web application). It will be a full replacement for the well-pervasive `requirements.txt` files, currently installable with ``$ pip install -r``.
+A ``Pipfile`` is a new (and much better!) way to declare dependencies for your
+Python environment (e.g. deployment of a web application). It will be a full
+replacement for the well-pervasive `requirements.txt` files, currently
+installable with ``$ pip install -r``.
 
-This is a concept project that will eventually be built into [pip](https://github.com/pypa/pip) itself, once the API (including the form of a `Pipfile` itself) has been built out and finalized. 
+This is a concept project that will eventually be built into
+[pip](https://github.com/pypa/pip) itself, once the API (including the form of
+a `Pipfile` itself) has been built out and finalized. 
 
-Remember, the important part here is `Pipfile.lock`. It allows deterministic builds. Today's `requirements.txt` can do this, and should, but often doesn't, when version specifiers aren't provided. This efforts will provide a much more pleasant user experience. 
+Remember, the important part here is `Pipfile.lock`. It allows deterministic
+builds. Today's `requirements.txt` can do this, and should, but often doesn't,
+when version specifiers aren't provided. This efforts will provide a much more
+pleasant user experience. 
 
 The Concept
 -----------
 
-A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of ways:
+A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of
+ways:
 
 - Expressive Python syntax for declaring all types of Python dependencies.
 - Grouping of sub-dependency groups (e.g. a ``testing`` group).
@@ -36,7 +45,8 @@ Note—this is an evolving work in progress::
 Example Pipfile.lock
 ++++++++++++++++++++
 
-Note—this file is always to be generated, not modified or constructed by a user::
+Note—this file is always to be generated, not modified or constructed by a
+user::
 
   {
       "_meta": {
