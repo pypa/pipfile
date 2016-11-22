@@ -3,19 +3,28 @@ Pipfile
 
 **Warning**: this project is under active development.
 
-A ``Pipfile`` is a new (and much better!) way to declare dependencies for your
-Python environment (e.g. deployment of a web application). It will be a full
-replacement for the well-pervasive `requirements.txt` files, currently
-installable with ``$ pip install -r``.
+A ``Pipfile``, and its related ``Pipfile.lock``, are a new (and much better!)
+replacement for `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
+files.
 
-This is a concept project that will eventually be built into `pip
-<https://github.com/pypa/pip>`_ itself, once the API (including the form of a
-``Pipfile`` itself) has been built out and finalized. 
+Specifically, for a Python package, a ``Pipfile`` allows developers to specify
+*concrete* sets of its dependencies, their locations, and their loose version
+constraints. A ``Pipfile.lock`` can then be automatically generated during
+package installation to fully specify an exact set of known working versions,
+and future installations may refer to the ``Pipfile.lock`` to recreate the
+exact contents of the environment. A deployed web application, for instance,
+can be completely redeployed with the same exact versions of all recursive
+dependencies, by referencing the ``Pipfile.lock`` file.
 
-Remember, the important part here is ``Pipfile.lock``. It allows deterministic
-builds. Today's ``requirements.txt`` can do this, and should, but often
-doesn't, when version specifiers aren't provided. This efforts will provide a
-much more pleasant user experience. 
+``pip`` will grow a new command line option, ``-p`` / ``--pipfile``  to install
+the versions specified in a ``Pipfile``, similar to its existing ``-r`` /
+``--requirement`` argument for installing ``requirements.txt`` files.
+
+This repository contains the design specification of the ``Pipfile`` format, as
+well as (soon) an implementation of a parser for the specification which can be
+used by `pip <https://github.com/pypa/pip>`_ and any other consumer, once the
+API (including the form of a ``Pipfile`` itself) has been built out and
+finalized. 
 
 The Concept
 -----------
@@ -23,10 +32,13 @@ The Concept
 A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of
 ways:
 
-- Expressive Python syntax for declaring all types of Python dependencies.
-- Grouping of sub-dependency groups (e.g. a ``testing`` group).
-- Use of a single file only will be extremely encouraged.
-- ``Pipfile.lock``
+- Expressive syntax for declaring all types of Python dependencies
+- One file, not many
+  - Existing requirements files tend to proliferate into e.g.
+    ``dev-requirements.txt``, ``test-requirements.txt``, etc., but a
+    ``Pipfile`` will allow seamlessly specifying groups of dependencies
+    in one place
+- Fully specified environments in the form of ``Pipfile.lock``
 
 
 Example Pipfile
