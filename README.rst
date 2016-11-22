@@ -131,7 +131,7 @@ this is being constantly re-evaluated.
 It's all about making an API for Humans, first. Machines, second. Ideally,
 both of these can co-exist in harmony. For example, if this Python-esque syntax
 is settled on, a parser (this library, actually) will be readily available and
-may have a command-line utilitity for converting the representation to JSON.
+may have a command-line utility for converting the representation to JSON.
 
 
 Example Pip Integration (eventually)
@@ -154,7 +154,7 @@ Notes::
 
 Ideas::
 
-- Resursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare.
+- Recursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare.
 
 
 Useful Links
