@@ -106,7 +106,7 @@ is settled on, a parser (this library, actually) will be readily available and
 may have a command-line utilitity for converting the representation to JSON.
 
 
-Example Pip Integration (Eventually)
+Example Pip Integration (eventually)
 ++++++++++++++++++++++++++++++++++++
 
 Install packages from ``Pipfile``::
