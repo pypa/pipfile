@@ -57,15 +57,33 @@ Example Pipfile
 
 Note—this is an evolving work in progress::
 
-  # Note: There will be a default source, and context manager can also be used.
-  source('https://pypi.org/', verify_ssl=True)
+    source('https://pypi.org/', verify_ssl=True)
 
-  package('requests' extras=['socks'])
-  package('Django', '>1.10')
-  package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
-  dev_package('nose')
+    requires_python('2.7')
 
-The second parameter to `package` can be used positionally, but is named `version`.
+    package('requests' extras=['socks'])
+    package('Django', '>1.10')
+    package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
+    dev_package('nose')
+
+Notes:
+
+- There will be a default `source()`, and a context manager can also be used.
+- The second parameter to `package` is used positionally, but also named `version`.
+- An underlying `PEP 508 <https://www.python.org/dev/peps/pep-0508/#environment-markers>`_
+  ``requires(marker, specifier)`` will be allowed, but discouraged in favor for a small
+  selection of built-ins for standard use-cases (e.g. python version, platform). This
+  functionality may not be readily used, as it is only to assert (and therefore abort,
+  if appropriate) installation on certian platforms (e.g. windows).
+
+Other / lower-level functions::
+
+    # Support for all PEP 508 markers
+    requires('python_full_version', '3.6.0b1')
+
+    #TODO: shortcut name for Darwin|Linux (e.g. `*nix`)
+    requires_platform('Windows')
+
 
 Example Pipfile.lock
 ++++++++++++++++++++
@@ -76,6 +94,9 @@ user::
   {
       "_meta": {
           "Pipfile-sha256": "73d81f4fbe42d1da158c5d4435d921121a4a1013b2f0dfed95367f3c742b88c6",
+          "requires": [
+              {"marker": "python_version", "specifier": "2.7"}
+          ],
           "sources": [
               {"url": "https://pypi.org/", "verify_ssl": true},
           ]
