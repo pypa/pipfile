@@ -40,9 +40,9 @@ ways:
     ``dev-requirements.txt``, ``test-requirements.txt``, etc., but a
     ``Pipfile`` will allow seamlessly specifying groups of dependencies
     in one place.
-  * This will be surfaces as only two built-in groups (*default* &
+  * This will be surfaced as only two built-in groups (*default* &
     *development*).
-  * Custom groups may be addeded in the future. Remember, it is easier
+  * Custom groups may be added in the future. Remember, it is easier
     to add features in the future than it is to remove them. The Composer
     community has been successful with only *default* and *development*
     as group options for many years — I'd like to follow this model, at
@@ -131,7 +131,7 @@ this is being constantly re-evaluated.
 It's all about making an API for Humans, first. Machines, second. Ideally,
 both of these can co-exist in harmony. For example, if this Python-esque syntax
 is settled on, a parser (this library, actually) will be readily available and
-may have a command-line utilitity for converting the representation to JSON.
+may have a command-line utility for converting the representation to JSON.
 
 
 Example Pip Integration (eventually)
@@ -154,7 +154,7 @@ Notes::
 
 Ideas::
 
-- Resursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare.
+- Recursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare.
 
 
 Useful Links
