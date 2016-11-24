@@ -7,7 +7,7 @@ A ``Pipfile``, and its related ``Pipfile.lock``, are a new (and much better!)
 replacement for `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
 files.
 
-Specifically, for a Python package, a ``Pipfile`` allows developers to specify
+Specifically, for a Python application, a ``Pipfile`` allows developers to specify
 *concrete* and sets of dependencies, their locations, and their loose version
 constraints. A ``Pipfile.lock`` can then be automatically generated during
 package installation to fully specify an exact set of known working versions,
