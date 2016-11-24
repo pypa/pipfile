@@ -116,7 +116,7 @@ Why not TOML & Friends?
 ///////////////////////
 
 TOML is an attractive option for ``Pipfile``, especially with the recent
-`PEP 518 (pyproject.tml) <PEP 518>`_ plans that are in place.
+`PEP 518 (pyproject.tml) <https://www.python.org/dev/peps/pep-0518/>`_ plans that are in place.
 
 Don't worry — this and other formats are possibly being considered for
 the contents ``Pipfile``.
