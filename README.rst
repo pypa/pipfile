@@ -61,7 +61,7 @@ Note—this is an evolving work in progress::
 
     requires_python('2.7')
 
-    package('requests' extras=['socks'])
+    package('requests', extras=['socks'])
     package('Django', '>1.10')
     package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
     dev_package('nose')
