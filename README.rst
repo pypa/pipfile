@@ -74,7 +74,7 @@ Notes:
   ``requires(marker, specifier)`` will be allowed, but discouraged in favor for a small
   selection of built-ins for standard use-cases (e.g. python version, platform). This
   functionality may not be readily used, as it is only to assert (and therefore abort,
-  if appropriate) installation on certain platforms (e.g. windows).
+  if appropriate) installation on certain platforms (e.g. windows, wrong python version).
 
 Other / lower-level functions::
 
