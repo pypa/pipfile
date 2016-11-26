@@ -1,7 +1,7 @@
 Pipfile
 =======
 
-**Warning**: this project is under active development.
+**Warning**: this project is under active development (and design). 
 
 A ``Pipfile``, and its related ``Pipfile.lock``, are a new (and much better!)
 replacement for `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
