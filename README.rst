@@ -1,7 +1,7 @@
 Pipfile
 =======
 
-**Warning**: this project is under active development (and design). 
+**Warning**: this project is under active development (and design).
 
 A ``Pipfile``, and its related ``Pipfile.lock``, are a new (and much better!)
 replacement for `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
@@ -111,6 +111,12 @@ user::
           {"name": "nose", "version": "1.3.7", "hash": "..."},
       ]
   }
+
+
+Note how the versions of each dependency are recursively frozen, and a hash
+gets computed so that you can take advantage of
+`new pip security features
+<https://pip.pypa.io/en/stable/reference/pip_install/#hash-checking-mode>`_
 
 Why not TOML & Friends?
 ///////////////////////
