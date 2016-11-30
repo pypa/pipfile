@@ -103,7 +103,7 @@ user::
        },
       "default": [
           {"name": "Django", "version": "1.10.3", "hash": "..."},
-          {"name": "requests", version": "2.12.1", "hash": "..."},
+          {"name": "requests", "version": "2.12.1", "hash": "..."},
           {"name": "pinax", "git": "git://...", "ref": "1.4", "editable": true},
           {"name": "PySocks", "version": "1.5.6", "hash": "..."},
       ],
