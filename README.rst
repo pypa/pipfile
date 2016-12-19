@@ -3,7 +3,7 @@ Pipfile
 
 **Warning**: this project is under active development (and design).
 
-A ``Pipfile`` (named `requirements.pip`, and its related ``requirements.piplock``), is a new (and much better!)
+A ``Pipfile`` (named ``requirements.pip``, and its sister ``requirements.piplock``), is a new (and much better!)
 replacement for the existing standard `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
 file.
 
