@@ -3,18 +3,18 @@ Pipfile
 
 **Warning**: this project is under active development (and design).
 
-A ``Pipfile``, and its related ``Pipfile.lock``, are a new (and much better!)
-replacement for `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
-files.
+A ``Pipfile`` (named `requirements.pip`, and its related ``requirements.piplock``), is a new (and much better!)
+replacement for the existing standard `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
+file.
 
 Specifically, for a Python application, a ``Pipfile`` allows developers to specify
 *concrete* and sets of dependencies, their locations, and their loose version
-constraints. A ``Pipfile.lock`` can then be automatically generated during
+constraints. A ``requirements.piplock`` can then be automatically generated during
 package installation to fully specify an exact set of known working versions,
-and future installations may refer to the ``Pipfile.lock`` to recreate the
+and future installations may refer to the ``requirements.piplock`` to recreate the
 exact contents of the environment in a *deterministic* manner. A deployed web
 application, for instance, can be completely redeployed with the same exact
-versions of all recursive dependencies, by referencing the ``Pipfile.lock``
+versions of all recursive dependencies, by referencing the ``requirements.piplock``
 file.
 
 ``pip`` will grow a new command line option, ``-p`` / ``--pipfile``  to install
@@ -30,7 +30,7 @@ finalized.
 The Concept
 -----------
 
-A ``Pipfile`` will be superior to a ``requirements.txt`` file in a number of
+A Pipfile (``requirements.pip``) will be superior to a ``requirements.txt`` file in a number of
 ways:
 
 * Python-like syntax for declaring all types of Python dependencies.
@@ -49,13 +49,13 @@ ways:
     first.
 
 * Fully specified (and *deterministic*) environments in the form of
-  ``Pipfile.lock``.
+  ``requirements.piplock``.
 
 
 Example Pipfile
 +++++++++++++++
 
-Note—this is an evolving work in progress::
+Note—this is an evolving work in progress; filename is ``requirements.pip``::
 
     source('https://pypi.org/', verify_ssl=True)
 
@@ -85,8 +85,8 @@ Other / lower-level functions::
     requires_platform('Windows')
 
 
-Example Pipfile.lock
-++++++++++++++++++++
+Example requirements.piplock
+++++++++++++++++++++++++++++
 
 Note—this file is always to be generated, not modified or constructed by a
 user::
@@ -146,21 +146,21 @@ Example Pip Integration (eventually)
 Install packages from ``Pipfile``::
 
     $ pip install -p
-    ! Warning: Pipfile.lock (48d35f) is out of date. Updating to (73d81f).
-    Installing packages from Pipfile.lock...
+    ! Warning: requirements.piplock (48d35f) is out of date. Updating to (73d81f).
+    Installing packages from requirements.piplock...
 
     # Manually update lockfile.
-    $ pip freeze -p Pipfile
-    Pipfile.lock (73d81f) written to disk.
+    $ pip freeze -p special_requirements.pip
+    special_requirements.piplock (73d81f) written to disk.
 
 Notes::
 
-    # -p accepts a path argument, which defaults to 'Pipfile'.
-    # Pipfile.lock will be written automatically during `install -p` if it does not exist.
+    # -p accepts a path argument, which defaults to 'requirements.pip'.
+    # requirements.piplock will be written automatically during `install -p` if it does not exist.
 
 Ideas::
 
-- Recursively look for `Pipfile` in parent directories (limit 4?) when ``-p`` is bare.
+- Recursively look for `requirements.pip` in parent directories (limit 4?) when ``-p`` is bare.
 
 
 Useful Links
