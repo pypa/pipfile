@@ -14,8 +14,10 @@ __uri__ = "https://github.com/pypa/pipfile"
 
 __version__ = "16.0.dev0"
 
-__author__ = "Donald Stufft and individual contributors"
-__email__ = "donald@stufft.io"
+__author__ = "Kenneth Reitz and individual contributors"
+__email__ = "me@kennethreitz.org"
 
 __license__ = "BSD or Apache License, Version 2.0"
-__copyright__ = "Copyright 2016 %s" % __author__
+__copyright__ = "Copyright 2017 %s" % __author__
+
+from .api import *
