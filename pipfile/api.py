@@ -1,10 +1,10 @@
-import json
 import hashlib
 import platform
 import sys
 import os
 from collections import OrderedDict
 
+from . import _json
 
 def format_full_version(info):
     version = '{0.major}.{0.minor}.{0.micro}'.format(info)
@@ -164,7 +164,7 @@ class Pipfile(object):
         """Returns a JSON representation of the Pipfile."""
         data = self.data
         data['_meta']['Pipfile-sha256'] = self.hash
-        return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
+        return _json.dumps(data)
 
     def assert_requirements(self):
         """"Asserts PEP 508 specifiers."""
