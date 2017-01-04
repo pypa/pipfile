@@ -1,3 +1,5 @@
+import json
+import hashlib
 from collections import OrderedDict
 
 
@@ -10,6 +12,7 @@ class PipfileParser(object):
             'develop': []
         })
         self.group_stack = ['default']
+        self.requires = []
 
     def __repr__(self):
         return '<PipfileParser path={0!r}'.format(self.filename)
@@ -32,7 +35,6 @@ class PipfileParser(object):
             'source': self.add_source,
             'package': self.add_package,
             'dev_package': self.add_dev_package,
-            'group': self.set_group,
             'True': True,
             'False': False,
         }
@@ -41,10 +43,6 @@ class PipfileParser(object):
         source = OrderedDict({'url': url})
         source.update(kwargs)
         self.sources.append(source)
-
-    @property
-    def current_group(self):
-        return self.group_stack[-1]
 
     def add_package(self, name, version=None, **kwargs):
         package = OrderedDict()
@@ -62,11 +60,6 @@ class PipfileParser(object):
         package.update(kwargs)
         self.groups['develop'].append(package)
 
-    def set_group(self, name):
-        self.group_stack.append(name)
-        self.groups[name] = []
-        return self
-
     def __enter__(self):
         pass
 
@@ -75,18 +68,35 @@ class PipfileParser(object):
 
 
 class Pipfile(object):
-    def __init__(self,):
+    def __init__(self, filename):
         super(Pipfile, self).__init__()
-        self.filename = None
+        self.filename = filename
+        self.data = None
 
     @classmethod
     def load(klass, filename):
-        pass
+        p = PipfileParser(filename=filename)
+        pipfile = klass(filename=filename)
+        pipfile.data = p.parse()
+        return pipfile
+
+    @property
+    def hash(self):
+        return hashlib.sha256(self.contents).hexdigest()
+
+    @property
+    def contents(self):
+        with open(self.filename, 'r') as f:
+            return f.read()
+
+    def freeze(self):
+        data = self.data
+        data['_meta']['Pipfile-sha256'] = self.hash
+        return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
 
 
 def load(pipfile_path):
-    p = PipfileParser(filename=pipfile_path)
-    return p.parse()
+    return Pipfile.load(filename=pipfile_path)
 
 def function():
     pass
