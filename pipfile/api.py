@@ -12,7 +12,7 @@ class PipfileParser(object):
             'develop': []
         })
         self.group_stack = ['default']
-        self.requires = []
+        self.requirements = []
 
     def __repr__(self):
         return '<PipfileParser path={0!r}'.format(self.filename)
@@ -24,6 +24,7 @@ class PipfileParser(object):
         data = OrderedDict({
             '_meta': {
                 'sources': self.sources,
+                'requires': self.requirements
             },
         })
         data.update(self.groups)
@@ -35,6 +36,8 @@ class PipfileParser(object):
             'source': self.add_source,
             'package': self.add_package,
             'dev_package': self.add_dev_package,
+            'requires': self.requires,
+            'requires_python': self.requires_python,
             'True': True,
             'False': False,
         }
@@ -59,6 +62,15 @@ class PipfileParser(object):
             package['version'] = version
         package.update(kwargs)
         self.groups['develop'].append(package)
+
+    def requires(self, marker, specifier):
+        requirement = OrderedDict()
+        requirement['marker'] = marker
+        requirement['specifier'] = specifier
+        self.requirements.append(requirement)
+
+    def requires_python(self, python_version):
+        self.requires('python_version', python_version)
 
     def __enter__(self):
         pass

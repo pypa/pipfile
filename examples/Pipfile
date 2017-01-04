@@ -1,6 +1,6 @@
 source('https://pypi.org/', verify_ssl=True)
 
-# requires_python('2.7')
+requires_python('2.7')
 
 package('requests', extras=['socks'])
 package('Django', '>1.10')
