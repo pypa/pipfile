@@ -1,5 +1,6 @@
 import json
 import hashlib
+import platform
 from collections import OrderedDict
 
 
@@ -106,9 +107,14 @@ class Pipfile(object):
         data['_meta']['Pipfile-sha256'] = self.hash
         return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
 
+    def assert_requirements(self):
+        for requirement in self.data['_meta']['requires']:
+            marker = requirement['marker']
+            specifier = requirement['specifier']
+
+            if marker == 'python_version':
+                assert platform.python_version()[:3] == specifier
+
 
 def load(pipfile_path):
     return Pipfile.load(filename=pipfile_path)
-
-def function():
-    pass
