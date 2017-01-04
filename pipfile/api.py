@@ -14,10 +14,6 @@ def format_full_version(info):
     return version
 
 
-if hasattr(sys, 'implementation'):
-    implementation_version = format_full_version(sys.implementation.version)
-else:
-    implementation_version = "0"
 
 
 class PipfileParser(object):
@@ -125,6 +121,18 @@ class Pipfile(object):
 
     def assert_requirements(self):
 
+        # Support for 508's implementation_version.
+        if hasattr(sys, 'implementation'):
+            implementation_version = format_full_version(sys.implementation.version)
+        else:
+            implementation_version = "0"
+
+        # Default to cpython for 2.7.
+        if hasattr(sys, 'implementation'):
+            implementation_name = sys.implementation.name
+        else:
+            implementation_name = 'cpython'
+
         lookup = {
             'os_name': os.name,
             'sys_platform': sys.platform,
@@ -135,9 +143,8 @@ class Pipfile(object):
             'platform_version': platform.version(),
             'python_version': platform.python_version()[:3],
             'python_full_version': platform.python_version(),
-            # 'implementation_name': sys.implementation.name,
+            'implementation_name': implementation_name,
             'implementation_version': implementation_version
-
         }
 
         for requirement in self.data['_meta']['requires']:
@@ -145,7 +152,11 @@ class Pipfile(object):
             specifier = requirement['specifier']
 
             if marker in lookup:
-                assert lookup[marker] == specifier
+                try:
+                    assert lookup[marker] == specifier
+                except AssertionError:
+                    raise AssertionError('Specifier {!r} does not match {!r}.'.format(marker, specifier))
+
 
 
 def load(pipfile_path):
