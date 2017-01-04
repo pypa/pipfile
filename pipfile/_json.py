@@ -25,7 +25,7 @@ class NoIndent(object):
 
             return '[' + ', '.join(reps) + ']'
 
-class MyEncoder(json.JSONEncoder):
+class NoIndentEncoder(json.JSONEncoder):
     FORMAT_SPEC = "@@{}@@"
     regex = re.compile(FORMAT_SPEC.format(r"(\d+)"))
 
@@ -45,9 +45,10 @@ class MyEncoder(json.JSONEncoder):
 
 
 def dumps(obj):
+    """Returns specific data in a specific format."""
     obj['_meta']['requires'] = [NoIndent(i) for i in obj['_meta']['requires']]
     obj['_meta']['sources'] = [NoIndent(i) for i in obj['_meta']['sources']]
     obj['default'] = [NoIndent(i) for i in obj['default']]
     obj['develop'] = [NoIndent(i) for i in obj['develop']]
 
-    return json.dumps(obj, sort_keys=True, cls=MyEncoder, indent=4, separators=(',', ': '))
+    return json.dumps(obj, sort_keys=True, cls=NoIndentEncoder, indent=4, separators=(',', ': '))
