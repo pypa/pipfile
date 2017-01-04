@@ -14,6 +14,38 @@ def format_full_version(info):
     return version
 
 
+def walk_up(bottom):
+    """mimic os.walk, but walk 'up' instead of down the directory tree.
+    From: https://gist.github.com/zdavkeos/1098474
+    """
+
+    bottom = os.path.realpath(bottom)
+
+    # get files in current dir
+    try:
+        names = os.listdir(bottom)
+    except Exception as e:
+        print e
+        return
+
+    dirs, nondirs = [], []
+    for name in names:
+        if os.path.isdir(os.path.join(bottom, name)):
+            dirs.append(name)
+        else:
+            nondirs.append(name)
+
+    yield bottom, dirs, nondirs
+
+    new_path = os.path.realpath(os.path.join(bottom, '..'))
+
+    # see if we are at the top
+    if new_path == bottom:
+        return
+
+    for x in walk_up(new_path):
+        yield x
+
 
 
 class PipfileParser(object):
@@ -98,8 +130,20 @@ class Pipfile(object):
         self.filename = filename
         self.data = None
 
+    @staticmethod
+    def find(max_depth=3):
+        """Returns the path of a Pipfile in parent directories."""
+        i = 0
+        for c, d, f in walk_up(os.getcwd()):
+            i += 1
+
+            if i < max_depth:
+                if 'Pipfile':
+                    return '{}/Pipfile'.format(c)
+
     @classmethod
     def load(klass, filename):
+        """Load a Pipfile from a given filename."""
         p = PipfileParser(filename=filename)
         pipfile = klass(filename=filename)
         pipfile.data = p.parse()
@@ -107,19 +151,23 @@ class Pipfile(object):
 
     @property
     def hash(self):
+        """Returns the SHA256 of the pipfile."""
         return hashlib.sha256(self.contents).hexdigest()
 
     @property
     def contents(self):
+        """Returns the contents of the pipfile."""
         with open(self.filename, 'r') as f:
             return f.read()
 
     def freeze(self):
+        """Returns a JSON representation of the Pipfile."""
         data = self.data
         data['_meta']['Pipfile-sha256'] = self.hash
         return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
 
     def assert_requirements(self):
+        """"Asserts PEP 508 specifiers."""
 
         # Support for 508's implementation_version.
         if hasattr(sys, 'implementation'):
@@ -147,6 +195,7 @@ class Pipfile(object):
             'implementation_version': implementation_version
         }
 
+        # Assert each specified requirement.
         for requirement in self.data['_meta']['requires']:
             marker = requirement['marker']
             specifier = requirement['specifier']
