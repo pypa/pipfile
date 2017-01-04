@@ -31,12 +31,12 @@ class NoIndentEncoder(json.JSONEncoder):
 
     def default(self, obj):
         if not isinstance(obj, NoIndent):
-            return super(MyEncoder, self).default(obj)
+            return super(NoIndentEncoder, self).default(obj)
         return self.FORMAT_SPEC.format(id(obj))
 
     def encode(self, obj):
         format_spec = self.FORMAT_SPEC  # local var to expedite access
-        result = super(MyEncoder, self).encode(obj)
+        result = super(NoIndentEncoder, self).encode(obj)
         for match in self.regex.finditer(result):
             id = int(match.group(1))
             result = result.replace('"{}"'.format(format_spec.format(id)),
