@@ -111,36 +111,6 @@ class PipfileParser(object):
             'False': False,
         }
 
-    def add_source(self, url, **kwargs):
-        source = OrderedDict({'url': url})
-        source.update(kwargs)
-        self.sources.append(source)
-
-    def add_package(self, name, version=None, **kwargs):
-        package = OrderedDict()
-        package['name'] = name
-        if version:
-            package['version'] = version
-        package.update(kwargs)
-        self.groups['default'].append(package)
-
-    def add_dev_package(self, name, version=None, **kwargs):
-        package = OrderedDict()
-        package['name'] = name
-        if version:
-            package['version'] = version
-        package.update(kwargs)
-        self.groups['develop'].append(package)
-
-    def requires(self, marker, specifier):
-        requirement = OrderedDict()
-        requirement['marker'] = marker
-        requirement['specifier'] = specifier
-        self.requirements.append(requirement)
-
-    def requires_python(self, python_version):
-        self.requires('python_version', python_version)
-
     def __enter__(self):
         pass
 
