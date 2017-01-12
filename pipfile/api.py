@@ -1,3 +1,5 @@
+import toml
+
 import hashlib
 import platform
 import sys
@@ -63,15 +65,37 @@ class PipfileParser(object):
         return '<PipfileParser path={0!r}'.format(self.filename)
 
     def parse(self):
+        # Open the Pipfile.
         with open(self.filename) as f:
             content = f.read()
-        exec(content, {'__builtins__': None}, self.locals)
+
+        # Load the default configuration.
+        default_config = {
+            u'source': [{u'url': u'https://pypi.org/', u'verify_ssl': True}],
+            u'packages': {},
+            u'requires': {},
+            u'dev-packages': {}
+        }
+
+        config = {}
+        config.update(default_config)
+
+        # Load the Pipfile's configuration.
+        config = toml.loads(content)
+
         data = OrderedDict({
             '_meta': {
-                'sources': self.sources,
-                'requires': self.requirements
+                'sources': config['source'],
+                'requires': config['requires']
             },
         })
+
+        if 'packages' in config:
+            self.groups['default'] = config['packages']
+
+        if 'dev-packages' in config:
+            self.groups['development'] = config['packages']
+
         data.update(self.groups)
         return data
 
