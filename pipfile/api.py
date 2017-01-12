@@ -90,6 +90,7 @@ class PipfileParser(object):
             },
         })
 
+        # TODO: Validate given data here.
         self.groups['default'] = config['packages']
         self.groups['development'] = config['packages']
 
