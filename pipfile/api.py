@@ -99,24 +99,6 @@ class PipfileParser(object):
         data.update(self.groups)
         return data
 
-    @property
-    def locals(self):
-        return {
-            'source': self.add_source,
-            'package': self.add_package,
-            'dev_package': self.add_dev_package,
-            'requires': self.requires,
-            'requires_python': self.requires_python,
-            'True': True,
-            'False': False,
-        }
-
-    def __enter__(self):
-        pass
-
-    def __exit__(self, type, value, traceback):
-        self.group_stack.pop()
-
 
 class Pipfile(object):
     def __init__(self, filename):
