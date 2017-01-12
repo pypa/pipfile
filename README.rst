@@ -76,11 +76,10 @@ Notes:
 
 - There will be a default `source()`, and a context manager can also be used.
 - The second parameter to `package` is used positionally, but also named `version`.
-- An underlying `PEP 508 <https://www.python.org/dev/peps/pep-0508/#environment-markers>`_
-  ``requires(marker, specifier)`` will be allowed, but discouraged in favor for a small
-  selection of built-ins for standard use-cases (e.g. python version, platform). This
-  functionality may not be readily used, as it is only to assert (and therefore abort,
-  if appropriate) installation on certain platforms (e.g. windows, wrong python version).
+- Requires utilizes  `PEP 508 <https://www.python.org/dev/peps/pep-0508/#environment-markers>`_
+  ``requires(marker, specifier)`` markers. This functionality may not be readily used, as it 
+  is only to assert (and therefore abort, if appropriate) installation on certain platforms 
+  (e.g. windows, wrong python version).
 
 Other / lower-level functions::
 
