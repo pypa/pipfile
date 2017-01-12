@@ -33,7 +33,7 @@ The Concept
 A Pipfile (``Pipfile``) will be superior to a ``requirements.txt`` file in a number of
 ways:
 
-* Python-like syntax for declaring all types of Python dependencies.
+* TOML syntax for declaring all types of Python dependencies.
 * One Pipfile (as opposed to multiple ``requirements.txt`` files).
 
   * Existing requirements files tend to proliferate into e.g.
