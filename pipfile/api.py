@@ -90,11 +90,8 @@ class PipfileParser(object):
             },
         })
 
-        if 'packages' in config:
-            self.groups['default'] = config['packages']
-
-        if 'dev-packages' in config:
-            self.groups['development'] = config['packages']
+        self.groups['default'] = config['packages']
+        self.groups['development'] = config['packages']
 
         data.update(self.groups)
         return data
