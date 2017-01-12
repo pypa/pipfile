@@ -41,7 +41,7 @@ setup(
     author=about["__author__"],
     author_email=about["__email__"],
 
-    install_requires=[],
+    install_requires=['toml'],
 
     classifiers=[
         "Intended Audience :: Developers",
