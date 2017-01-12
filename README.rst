@@ -72,7 +72,7 @@ Note—this is an evolving work in progress; filename is ``Pipfile``::
     [dev-packages]
     nose = '*'
 
-Notes:
+Additional Notes:
 
 - There will be a default ``source``.
 - ``requires`` utilizes  `PEP 508 <https://www.python.org/dev/peps/pep-0508/#environment-markers>`_
@@ -80,7 +80,7 @@ Notes:
   is only to assert (and therefore abort, if appropriate) installation on certain platforms 
   (e.g. python version, platform version).
 
-PEP 508 Support (aborts if not True)::
+**PEP 508 Support** (aborts if not True)::
 
     # Support for all PEP 508 markers
     [requires]
