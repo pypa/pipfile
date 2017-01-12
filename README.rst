@@ -5,7 +5,7 @@ Pipfile
 
 A ``Pipfile`` (named ``Pipfile``, and its sister ``Pipfile.freeze``), is a new (and much better!)
 replacement for the existing standard `pip <https://github.com/pypa/pip>`_'s ``requirements.txt``
-file.
+file. It uses the well-established `TOML <https://github.com/toml-lang/toml>`_ format. 
 
 Specifically, for a Python application, a ``Pipfile`` allows developers to specify
 *concrete* and sets of dependencies, their locations, and their loose version
