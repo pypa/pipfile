@@ -17,7 +17,7 @@ application, for instance, can be completely redeployed with the same exact
 versions of all recursive dependencies, by referencing the ``Pipfile.freeze``
 file.
 
-``pip`` will grow a new command line option, ``-p`` / ``--pipfile``  to install
+`Pip <https://pip.pypa.io/en/stable/>`_ will grow a new command line option, ``-p`` / ``--pipfile``  to install
 the versions specified in a ``Pipfile``, similar to its existing ``-r`` /
 ``--requirement`` argument for installing ``requirements.txt`` files.
 
