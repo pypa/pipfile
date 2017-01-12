@@ -1,3 +1,5 @@
+import toml
+
 import hashlib
 import platform
 import sys
@@ -63,65 +65,37 @@ class PipfileParser(object):
         return '<PipfileParser path={0!r}'.format(self.filename)
 
     def parse(self):
+        # Open the Pipfile.
         with open(self.filename) as f:
             content = f.read()
-        exec(content, {'__builtins__': None}, self.locals)
-        data = OrderedDict({
-            '_meta': {
-                'sources': self.sources,
-                'requires': self.requirements
-            },
-        })
-        data.update(self.groups)
-        return data
 
-    @property
-    def locals(self):
-        return {
-            'source': self.add_source,
-            'package': self.add_package,
-            'dev_package': self.add_dev_package,
-            'requires': self.requires,
-            'requires_python': self.requires_python,
-            'True': True,
-            'False': False,
+        # Load the default configuration.
+        default_config = {
+            u'source': [{u'url': u'https://pypi.org/', u'verify_ssl': True}],
+            u'packages': {},
+            u'requires': {},
+            u'dev-packages': {}
         }
 
-    def add_source(self, url, **kwargs):
-        source = OrderedDict({'url': url})
-        source.update(kwargs)
-        self.sources.append(source)
+        config = {}
+        config.update(default_config)
 
-    def add_package(self, name, version=None, **kwargs):
-        package = OrderedDict()
-        package['name'] = name
-        if version:
-            package['version'] = version
-        package.update(kwargs)
-        self.groups['default'].append(package)
+        # Load the Pipfile's configuration.
+        config = toml.loads(content)
 
-    def add_dev_package(self, name, version=None, **kwargs):
-        package = OrderedDict()
-        package['name'] = name
-        if version:
-            package['version'] = version
-        package.update(kwargs)
-        self.groups['develop'].append(package)
+        data = OrderedDict({
+            '_meta': {
+                'sources': config['source'],
+                'requires': config['requires']
+            },
+        })
 
-    def requires(self, marker, specifier):
-        requirement = OrderedDict()
-        requirement['marker'] = marker
-        requirement['specifier'] = specifier
-        self.requirements.append(requirement)
+        # TODO: Validate given data here.
+        self.groups['default'] = config['packages']
+        self.groups['development'] = config['packages']
 
-    def requires_python(self, python_version):
-        self.requires('python_version', python_version)
-
-    def __enter__(self):
-        pass
-
-    def __exit__(self, type, value, traceback):
-        self.group_stack.pop()
+        data.update(self.groups)
+        return data
 
 
 class Pipfile(object):

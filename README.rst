@@ -57,14 +57,20 @@ Example Pipfile
 
 Note—this is an evolving work in progress; filename is ``Pipfile``::
 
-    source('https://pypi.org/', verify_ssl=True)
+    [[source]]
+    url = 'https://pypi.org/'
+    verify_ssl = true
 
-    requires_python('2.7')
+    [requires]
+    python_version = '2.7'
 
-    package('requests', extras=['socks'])
-    package('Django', '>1.10')
-    package('pinax', git='git://github.com/pinax/pinax.git', ref='1.4', editable=True)
-    dev_package('nose')
+    [packages]
+    requests = { extras = ['socks'] }
+    Django = '>1.10'
+    pinax = { git = 'git://github.com/pinax/pinax.git', ref = '1.4', editable = true }
+
+    [dev-packages]
+    nose = '*'
 
 Notes:
 
@@ -79,10 +85,10 @@ Notes:
 Other / lower-level functions::
 
     # Support for all PEP 508 markers
-    requires('python_full_version', '3.6.0b1')
+    [requires]
+    python_full_version = '3.6.0b1'
 
-    #TODO: shortcut name for Darwin|Linux (e.g. `*nix`)
-    requires_platform('Windows')
+    platform = 'windows'
 
 
 Example Pipfile.freeze
