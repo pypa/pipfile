@@ -74,14 +74,13 @@ Note—this is an evolving work in progress; filename is ``Pipfile``::
 
 Notes:
 
-- There will be a default `source()`, and a context manager can also be used.
-- The second parameter to `package` is used positionally, but also named `version`.
+- There will be a default source.
 - Requires utilizes  `PEP 508 <https://www.python.org/dev/peps/pep-0508/#environment-markers>`_
   ``marker =  'specifier'`` markers. This functionality may not be readily used, as it 
   is only to assert (and therefore abort, if appropriate) installation on certain platforms 
   (e.g. windows, wrong python version).
 
-Other / lower-level functions::
+PEP 508 Support (aborts if not True)::
 
     # Support for all PEP 508 markers
     [requires]
