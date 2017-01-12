@@ -83,6 +83,7 @@ class PipfileParser(object):
         # Load the Pipfile's configuration.
         config = toml.loads(content)
 
+        # Structure the data for output.
         data = OrderedDict({
             '_meta': {
                 'sources': config['source'],
@@ -94,6 +95,7 @@ class PipfileParser(object):
         self.groups['default'] = config['packages']
         self.groups['development'] = config['packages']
 
+        # Update the data structure with group information.
         data.update(self.groups)
         return data
 
