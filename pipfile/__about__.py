@@ -19,5 +19,3 @@ __email__ = "me@kennethreitz.org"
 
 __license__ = "BSD or Apache License, Version 2.0"
 __copyright__ = "Copyright 2017 %s" % __author__
-
-from .api import *
