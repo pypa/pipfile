@@ -1,5 +1,6 @@
 import toml
 
+import json
 import hashlib
 import platform
 import sys
@@ -81,7 +82,7 @@ class PipfileParser(object):
         config.update(default_config)
 
         # Load the Pipfile's configuration.
-        config = toml.loads(content)
+        config.update(toml.loads(content))
 
         # Structure the data for output.
         data = OrderedDict({
@@ -93,7 +94,7 @@ class PipfileParser(object):
 
         # TODO: Validate given data here.
         self.groups['default'] = config['packages']
-        self.groups['development'] = config['packages']
+        self.groups['develop'] = config['dev-packages']
 
         # Update the data structure with group information.
         data.update(self.groups)
@@ -115,7 +116,10 @@ class Pipfile(object):
 
             if i < max_depth:
                 if 'Pipfile':
-                    return '{}/Pipfile'.format(c)
+                    p = '{}/Pipfile'.format(c)
+                    if os.path.isfile(p):
+                        return p
+        raise RuntimeError('No Pipfile found!')
 
     @classmethod
     def load(klass, filename):
@@ -140,7 +144,8 @@ class Pipfile(object):
         """Returns a JSON representation of the Pipfile."""
         data = self.data
         data['_meta']['Pipfile-sha256'] = self.hash
-        return _json.dumps(data)
+        # return _json.dumps(data)
+        return json.dumps(data, indent=4, separators=(',', ': '))
 
     def assert_requirements(self):
         """"Asserts PEP 508 specifiers."""
@@ -172,9 +177,7 @@ class Pipfile(object):
         }
 
         # Assert each specified requirement.
-        for requirement in self.data['_meta']['requires']:
-            marker = requirement['marker']
-            specifier = requirement['specifier']
+        for marker, specifier in self.data['_meta']['requires'].iteritems():
 
             if marker in lookup:
                 try:
@@ -183,6 +186,12 @@ class Pipfile(object):
                     raise AssertionError('Specifier {!r} does not match {!r}.'.format(marker, specifier))
 
 
+def load(pipfile_path=None):
+    """Loads a pipfile from a given path.
+    If none is provided, one will try to be found.
+    """
 
-def load(pipfile_path):
+    if pipfile_path is None:
+        pipfile_path = Pipfile.find()
+
     return Pipfile.load(filename=pipfile_path)
