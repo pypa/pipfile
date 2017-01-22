@@ -8,4 +8,4 @@ from .__about__ import (
     __uri__, __version__
 )
 
-from .api import load
+from .api import load, Pipfile
