@@ -1,7 +1,7 @@
 Pipfile
 =======
 
-``Pipfile`` and its sister ``Pipfile.freeze`` are a replacement for the existing standard `pip`_'s ``requirements.txt`` file. 
+``Pipfile`` and its sister ``Pipfile.lock`` are a replacement for the existing standard `pip`_'s ``requirements.txt`` file. 
 
     WARNING: This project is under active design and development. Nothing is set in stone at this point of time.
 
@@ -21,12 +21,12 @@ The Concept
   * Existing requirements files tend to proliferate into multiple files - e.g. ``dev-requirements.txt``, ``test-requirements.txt``, etc. - but a ``Pipfile`` will allow seamlessly specifying groups of dependencies in one place.
   * This will be surfaced as only two built-in groups (*default* &     *development*). (see note below)
 
-* Fully specified (and *deterministic*) environments in the form of ``Pipfile.freeze``.
-  A deployed application can then be completely redeployed with the same exact versions of all recursive dependencies, by referencing the ``Pipfile.freeze`` file.
+* Fully specified (and *deterministic*) environments in the form of ``Pipfile.lock``.
+  A deployed application can then be completely redeployed with the same exact versions of all recursive dependencies, by referencing the ``Pipfile.lock`` file.
 
 The concrete requirements for a Python Application would come from ``Pipfile``. This would include where the packages should be fetched from and their loose version constraints.
 
-The details of the environment (all installed packages with pinned versions and other details) would be stored in ``Pipfile.freeze``, for reproducibility. This file will be automatically generated and should not be modified by the user.
+The details of the environment (all installed packages with pinned versions and other details) would be stored in ``Pipfile.lock``, for reproducibility. This file will be automatically generated and should not be modified by the user.
 
     NOTE: Custom groups may be added in the future. Remember, it is easier to add features in the future than it is to remove them.
 
@@ -77,8 +77,8 @@ Notes:
 
 .. _`PEP 508`: https://www.python.org/dev/peps/pep-0508/#environment-markers
 
-``Pipfile.freeze``
-++++++++++++++++++
+``Pipfile.lock``
+++++++++++++++++
 
 ::
 
@@ -103,7 +103,7 @@ Notes:
         ]
     }
 
-``Pipfile.freeze`` is always to be generated and is not to be modified or constructed by a user.
+``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
 
 Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_
 
@@ -117,19 +117,19 @@ Pip Integration (eventual)
 Install packages from ``Pipfile``::
 
     $ pip install -p
-    ! Warning: Pipfile.freeze (48d35f) is out of date. Updating to (73d81f).
+    ! Warning: Pipfile.lock (48d35f) is out of date. Updating to (73d81f).
     Installing packages from requirements.piplock...
     [installation output]
 
-To manually update the ``Pipfile.freeze``::
+To manually update the ``Pipfile.lock``::
 
     $ pip freeze -p different_pipfile
-    different_pipfile.freeze (73d81f) written to disk.
+    different_pipfile.lock (73d81f) written to disk.
 
 Notes::
 
     # -p accepts a path argument, which defaults to 'Pipfile'.
-    # Pipfile.freeze will be written automatically during `install -p` if it does not exist.
+    # Pipfile.lock will be written automatically during `install -p` if it does not exist.
 
 Ideas::
 
