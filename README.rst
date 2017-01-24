@@ -44,7 +44,7 @@ Examples
 ::
 
     [[source]]
-    url = 'https://pypi.org/'
+    url = 'https://pypi.python.org/simple'
     verify_ssl = true
 
     [requires]
@@ -89,7 +89,7 @@ Notes:
                 {"marker": "python_version", "specifier": "2.7"}
             ],
             "sources": [
-                {"url": "https://pypi.org/", "verify_ssl": true},
+                {"url": "https://pypi.python.org/simple", "verify_ssl": true},
             ]
          },
         "default": [
