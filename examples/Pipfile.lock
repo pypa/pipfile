@@ -1,0 +1,39 @@
+{
+    "default": {
+        "PySocks": {
+            "version": "==1.6.5",
+            "hash": "sha256:7962f4d7c76e8414ae168c677a77f19cf8926143911f7e8d37a5d4c4eb910c6f"
+        },
+        "requests": {
+            "version": "==2.13.0",
+            "hash": "sha256:1a720e8862a41aa22e339373b526f508ef0c8988baf48b84d3fc891a8e237efb"
+        },
+        "Django": {
+            "version": "==1.10.5",
+            "hash": "sha256:4541a60834f28f308ee7b6e96400feca905fb0de473eb9dad6847e98a36d86d4"
+        },
+        "pinax": {
+            "ref": "1.4",
+            "git": "git://github.com/pinax/pinax.git",
+            "editable": true
+        }
+    },
+    "develop": {
+        "nose": {
+            "version": "==1.3.7",
+            "hash": "sha256:dadcddc0aefbf99eea214e0f1232b94f2fa9bd98fa8353711dacb112bfcbbb2a"
+        }
+    },
+    "_meta": {
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ],
+        "requires": {
+            "python_version": "2.7"
+        },
+        "Pipfile-sha256": "f7b3cb170ff903cb7d269195dd0a8212d335f3d5b7d6f907246fd580c46cf847"
+    }
+}
