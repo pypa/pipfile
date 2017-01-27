@@ -1,13 +1,12 @@
 import toml
 
+import codecs
 import json
 import hashlib
 import platform
 import sys
 import os
-from collections import OrderedDict
 
-from . import _json
 
 def format_full_version(info):
     version = '{0.major}.{0.minor}.{0.micro}'.format(info)
@@ -28,7 +27,6 @@ def walk_up(bottom):
     try:
         names = os.listdir(bottom)
     except Exception as e:
-        print e
         return
 
     dirs, nondirs = [], []
@@ -50,15 +48,14 @@ def walk_up(bottom):
         yield x
 
 
-
 class PipfileParser(object):
     def __init__(self, filename='Pipfile'):
         self.filename = filename
         self.sources = []
-        self.groups = OrderedDict({
+        self.groups = {
             'default': [],
             'develop': []
-        })
+        }
         self.group_stack = ['default']
         self.requirements = []
 
@@ -85,12 +82,12 @@ class PipfileParser(object):
         config.update(toml.loads(content))
 
         # Structure the data for output.
-        data = OrderedDict({
+        data = {
             '_meta': {
                 'sources': config['source'],
                 'requires': config['requires']
             },
-        })
+        }
 
         # TODO: Validate given data here.
         self.groups['default'] = config['packages']
@@ -116,7 +113,7 @@ class Pipfile(object):
 
             if i < max_depth:
                 if 'Pipfile':
-                    p = '{}/Pipfile'.format(c)
+                    p = '{0}/Pipfile'.format(c)
                     if os.path.isfile(p):
                         return p
         raise RuntimeError('No Pipfile found!')
@@ -132,19 +129,18 @@ class Pipfile(object):
     @property
     def hash(self):
         """Returns the SHA256 of the pipfile."""
-        return hashlib.sha256(self.contents).hexdigest()
+        return hashlib.sha256(self.contents.encode('utf-8')).hexdigest()
 
     @property
     def contents(self):
         """Returns the contents of the pipfile."""
-        with open(self.filename, 'r') as f:
+        with codecs.open(self.filename, 'r', 'utf-8') as f:
             return f.read()
 
-    def freeze(self):
+    def lock(self):
         """Returns a JSON representation of the Pipfile."""
         data = self.data
         data['_meta']['Pipfile-sha256'] = self.hash
-        # return _json.dumps(data)
         return json.dumps(data, indent=4, separators=(',', ': '))
 
     def assert_requirements(self):
@@ -177,7 +173,7 @@ class Pipfile(object):
         }
 
         # Assert each specified requirement.
-        for marker, specifier in self.data['_meta']['requires'].iteritems():
+        for marker, specifier in self.data['_meta']['requires'].items():
 
             if marker in lookup:
                 try:
