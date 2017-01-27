@@ -84,7 +84,9 @@ Notes:
 
     {
         "_meta": {
-            "Pipfile-sha256": "73d81f4fbe42d1da158c5d4435d921121a4a1013b2f0dfed95367f3c742b88c6",
+            "hash": {
+                "sha256": "73d81f4fbe42d1da158c5d4435d921121a4a1013b2f0dfed95367f3c742b88c6",
+            },
             "requires": [
                 {"marker": "python_version", "specifier": "2.7"}
             ],
