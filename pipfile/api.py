@@ -128,8 +128,9 @@ class Pipfile(object):
 
     @property
     def hash(self):
-        """Returns the SHA256 of the pipfile."""
-        return hashlib.sha256(self.contents.encode('utf-8')).hexdigest()
+        """Returns the SHA256 of the pipfile's data."""
+        content = json.dumps(self.data, sort_keys=True, separators=(",", ":"))
+        return hashlib.sha256(content.encode("utf8")).hexdigest()
 
     @property
     def contents(self):
@@ -140,7 +141,8 @@ class Pipfile(object):
     def lock(self):
         """Returns a JSON representation of the Pipfile."""
         data = self.data
-        data['_meta']['Pipfile-sha256'] = self.hash
+        data['_meta']['hash'] = {"sha256": self.hash}
+        # return _json.dumps(data)
         return json.dumps(data, indent=4, separators=(',', ': '))
 
     def assert_requirements(self):
