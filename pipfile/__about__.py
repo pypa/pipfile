@@ -12,7 +12,7 @@ __title__ = "pipfile"
 __summary__ = ""
 __uri__ = "https://github.com/pypa/pipfile"
 
-__version__ = "16.0.dev0"
+__version__ = "0.0.1"
 
 __author__ = "Kenneth Reitz and individual contributors"
 __email__ = "me@kennethreitz.org"
