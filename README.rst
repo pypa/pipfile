@@ -41,7 +41,7 @@ Examples
 ``Pipfile``
 +++++++++++
 
-::
+.. code-block:: toml
 
     [[source]]
     url = 'https://pypi.python.org/simple'
@@ -65,7 +65,7 @@ Notes:
 **PEP 508 Support** 
 +++++++++++++++++++
 
-::
+.. code-block:: toml
 
     # Support for all PEP 508 markers
     [requires]
@@ -80,7 +80,7 @@ Notes:
 ``Pipfile.lock``
 ++++++++++++++++
 
-::
+.. code-block:: json
 
     {
         "_meta": {
