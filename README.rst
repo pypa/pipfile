@@ -114,7 +114,7 @@ Do note how the versions of each dependency are recursively frozen and a hash ge
 Pip Integration (eventual)
 ++++++++++++++++++++++++++
 
-`pip`_ will grow a new command line options, ``-p`` / ``--pipfile`` to install the versions as specified in a ``Pipfile``, similar to its existing ``-r`` / ``--requirement`` argument for installing ``requirements.txt`` files.
+`pip`_ will grow a new command line option, ``-p`` / ``--pipfile`` to install the versions as specified in a ``Pipfile``, similar to its existing ``-r`` / ``--requirement`` argument for installing ``requirements.txt`` files.
 
 Install packages from ``Pipfile``::
 
