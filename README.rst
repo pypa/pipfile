@@ -7,12 +7,12 @@ Pipfile
 
 This repository contains the design specification of the ``Pipfile`` format, as well as (soon) an implementation of a parser for the specification which can be used by `pip`_ and any other consumer (e.g. `pipenv`_), once the design (including the form of a ``Pipfile`` itself) has been built out and finalized.
 
+.. _`pip`: https://pip.pypa.io/en/stable/
+.. _`pipenv`: http://pipenv.org
+
 -------------------------
 
 To use Pipfile today, try out `Pipenv <http://pipenv.org>`_. It contains the current reference implementation.
-
-.. _`pip`: https://pip.pypa.io/en/stable/
-.. _`pipenv`: http://pipenv.org
 
 
 The Concept
