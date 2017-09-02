@@ -239,7 +239,7 @@ Inspirations
 
 - `nvie/pip-tools`_: A set of tools to keep your pinned Python dependencies fresh.
 - `A Better Pip Workflow`_ by Kenneth Reitz
-- Lessons learned from Composer, Cargo, Yarn, NPM, Bundler and friends.
+- Lessons learned from Composer, Cargo, Yarn, NPM, Bundler and all Languages Owners at Heroku.
 
 
 .. _`nvie/pip-tools`: https://github.com/nvie/pip-tools
