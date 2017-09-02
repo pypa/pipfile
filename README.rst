@@ -226,9 +226,11 @@ Ideas::
 Useful Links
 ------------
 
+- `Pipenv`_: Current reference implementation
 - `pypa/pip#1795`_: Requirements 2.0
 - `Basic Concept Gist`_ (fork of @dstufft's)
 
+.. _`Pipenv`: http://pipenv.org
 .. _`Basic Concept Gist`: https://gist.github.com/kennethreitz/4745d35e57108f5b766b8f6ff396de85
 .. _`pypa/pip#1795`: https://github.com/pypa/pip/issues/1795
 
@@ -238,6 +240,7 @@ Inspirations
 - `nvie/pip-tools`_: A set of tools to keep your pinned Python dependencies fresh.
 - `A Better Pip Workflow`_ by Kenneth Reitz
 - Lessons learned from Composer, Cargo, Yarn, NPM, Bundler and friends.
+
 
 .. _`nvie/pip-tools`: https://github.com/nvie/pip-tools
 .. _`A Better Pip Workflow`: https://www.kennethreitz.org/essays/a-better-pip-workflow
