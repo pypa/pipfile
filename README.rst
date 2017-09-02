@@ -33,9 +33,7 @@ The concrete requirements for a Python Application would come from ``Pipfile``. 
 
 The details of the environment (all installed packages with pinned versions and other details) would be stored in ``Pipfile.lock``, for reproducibility. This file will be automatically generated and should not be modified by the user.
 
-    NOTE: Custom groups may be added in the future. Remember, it is easier to add features in the future than it is to remove them.
-
-    The Composer community has been successful with only *default* and *development* as group options for many years. This model would be tried/followed at first.
+.. note: Custom groups may be added in the future. Remember, it is easier to add features in the future than it is to remove them. The Composer community has been successful with only *default* and *development* as group options for many years. This model is being followed.
 
 
 Examples
