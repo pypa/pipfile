@@ -7,8 +7,8 @@ python_version = '2.7'
 
 [packages]
 requests = { extras = ['socks'] }
-Django = '>1.10'
-pinax = { git = 'git://github.com/pinax/pinax.git', ref = '1.4', editable = true }
+records = '>0.5.0'
+django = { git = 'https://github.com/django/django.git', ref = '1.11.4', editable = true }
 
 [dev-packages]
 nose = '*'
