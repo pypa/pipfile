@@ -5,9 +5,14 @@ Pipfile
 
     WARNING: This project is under active design and development. Nothing is set in stone at this point of time.
 
-This repository contains the design specification of the ``Pipfile`` format, as well as (soon) an implementation of a parser for the specification which can be used by `pip`_ and any other consumer, once the design (including the form of a ``Pipfile`` itself) has been built out and finalized.
+This repository contains the design specification of the ``Pipfile`` format, as well as (soon) an implementation of a parser for the specification which can be used by `pip`_ and any other consumer (e.g. `Pipenv`_), once the design (including the form of a ``Pipfile`` itself) has been built out and finalized.
 
 .. _`pip`: https://pip.pypa.io/en/stable/
+.. _`pipenv`: http://pipenv.org
+
+-------------------------
+
+To use Pipfile today, try out `Pipenv <http://pipenv.org>`_. It contains the current reference implementation.
 
 
 The Concept
@@ -16,7 +21,7 @@ The Concept
 ``Pipfile`` will be superior to ``requirements.txt`` file in a number of ways:
 
 * `TOML <https://github.com/toml-lang/toml>`_ syntax for declaring all types of Python dependencies.
-* One Pipfile (as opposed to multiple ``requirements.txt`` files).
+* One ``Pipfile`` (as opposed to multiple ``requirements.txt`` files).
 
   * Existing requirements files tend to proliferate into multiple files - e.g. ``dev-requirements.txt``, ``test-requirements.txt``, etc. - but a ``Pipfile`` will allow seamlessly specifying groups of dependencies in one place.
   * This will be surfaced as only two built-in groups (*default* &     *development*). (see note below)
@@ -28,15 +33,13 @@ The concrete requirements for a Python Application would come from ``Pipfile``. 
 
 The details of the environment (all installed packages with pinned versions and other details) would be stored in ``Pipfile.lock``, for reproducibility. This file will be automatically generated and should not be modified by the user.
 
-    NOTE: Custom groups may be added in the future. Remember, it is easier to add features in the future than it is to remove them.
-
-    The Composer community has been successful with only *default* and *development* as group options for many years. This model would be tried/followed at first.
+.. note:: Custom groups may be added in the future. Remember, it is easier to add features in the future than it is to remove them. The Composer community has been successful with only *default* and *development* as group options for many years. This model is being followed.
 
 
 Examples
 --------
 
-    NOTE: This is an evolving work in progress.
+Here is an example ``Pipfile`` and the resulting ``Pipfile.lock``, generated with `Pipenv <http://pipenv.org>`_, and this library:
 
 ``Pipfile``
 +++++++++++
@@ -74,6 +77,8 @@ Notes:
     platform = 'windows'
 
 ``requires`` utilizes  `PEP 508`_ ``marker =  'specifier'`` markers. This functionality may not be readily used, as it is only to assert (and therefore abort, if appropriate) installation on certain platforms (e.g. python version, platform version).
+
+This functionality can currently be tested with ``$ pipenv check``.
 
 .. _`PEP 508`: https://www.python.org/dev/peps/pep-0508/#environment-markers
 
@@ -183,7 +188,7 @@ Notes:
 
 ``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
 
-Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_
+Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_. Hashes are optional, as they can cause problems using the same lockfile across different Python versions.
 
 .. _`new pip security features`: https://pip.pypa.io/en/stable/reference/pip_install/#hash-checking-mode
 
