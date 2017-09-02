@@ -78,6 +78,8 @@ Notes:
 
 ``requires`` utilizes  `PEP 508`_ ``marker =  'specifier'`` markers. This functionality may not be readily used, as it is only to assert (and therefore abort, if appropriate) installation on certain platforms (e.g. python version, platform version).
 
+This functionality can currently be tested with ``$ pipenv check``.
+
 .. _`PEP 508`: https://www.python.org/dev/peps/pep-0508/#environment-markers
 
 ``Pipfile.lock``
