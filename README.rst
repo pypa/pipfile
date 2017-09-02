@@ -21,7 +21,7 @@ The Concept
 ``Pipfile`` will be superior to ``requirements.txt`` file in a number of ways:
 
 * `TOML <https://github.com/toml-lang/toml>`_ syntax for declaring all types of Python dependencies.
-* One Pipfile (as opposed to multiple ``requirements.txt`` files).
+* One ``Pipfile`` (as opposed to multiple ``requirements.txt`` files).
 
   * Existing requirements files tend to proliferate into multiple files - e.g. ``dev-requirements.txt``, ``test-requirements.txt``, etc. - but a ``Pipfile`` will allow seamlessly specifying groups of dependencies in one place.
   * This will be surfaced as only two built-in groups (*default* &     *development*). (see note below)
