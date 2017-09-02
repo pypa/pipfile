@@ -41,7 +41,7 @@ setup(
     author=about["__author__"],
     author_email=about["__email__"],
 
-    install_requires=['toml'],
+    install_requires=['toml', "pyrsistent"],
 
     classifiers=[
         "Intended Audience :: Developers",

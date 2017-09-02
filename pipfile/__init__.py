@@ -8,4 +8,12 @@ from .__about__ import (
     __uri__, __version__
 )
 
-from .api import load, Pipfile
+from ._api import load, loads, dump, dumps, find, save
+
+
+__all__ = [
+    "__author__", "__copyright__", "__email__", "__license__", "__summary__",
+    "__title__", "__uri__", "__version__",
+
+    "load", "loads", "dump", "dumps", "find", "save",
+]
