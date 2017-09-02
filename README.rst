@@ -52,8 +52,8 @@ Examples
 
     [packages]
     requests = { extras = ['socks'] }
-    Django = '>1.10'
-    pinax = { git = 'git://github.com/pinax/pinax.git', ref = '1.4', editable = true }
+    records = '>0.5.0'
+    django = { git = 'https://github.com/django/django.git', ref = '1.11.4', editable = true }
 
     [dev-packages]
     nose = '*'
@@ -83,26 +83,101 @@ Notes:
 .. code-block:: json
 
     {
-        "_meta": {
-            "hash": {
-                "sha256": "73d81f4fbe42d1da158c5d4435d921121a4a1013b2f0dfed95367f3c742b88c6",
-            },
-            "requires": [
-                {"marker": "python_version", "specifier": "2.7"}
-            ],
-            "sources": [
-                {"url": "https://pypi.python.org/simple", "verify_ssl": true},
-            ]
-         },
-        "default": [
-            {"name": "Django", "version": "1.10.3", "hash": "..."},
-            {"name": "requests", "version": "2.12.1", "hash": "..."},
-            {"name": "pinax", "git": "git://...", "ref": "1.4", "editable": true},
-            {"name": "PySocks", "version": "1.5.6", "hash": "..."},
-        ],
-        "development": [
-            {"name": "nose", "version": "1.3.7", "hash": "..."},
+    "_meta": {
+        "hash": {
+            "sha256": "b6d9e4a95bcb62207883a8f0ea52261650017e6c50b7aa01e112111a99fd298a"
+        },
+        "requires": {
+            "python_version": "2.7"
+        },
+        "sources": [
+            {
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
         ]
+    },
+    "default": {
+        "certifi": {
+            "version": "==2017.7.27.1"
+        },
+        "chardet": {
+            "version": "==3.0.4"
+        },
+        "django": {
+            "editable": true,
+            "git": "https://github.com/django/django.git",
+            "ref": "1.11.4"
+        },
+        "docopt": {
+            "version": "==0.6.2"
+        },
+        "et-xmlfile": {
+            "version": "==1.0.1"
+        },
+        "idna": {
+            "version": "==2.6"
+        },
+        "jdcal": {
+            "version": "==1.3"
+        },
+        "numpy": {
+            "version": "==1.13.1"
+        },
+        "odfpy": {
+            "version": "==1.3.5"
+        },
+        "openpyxl": {
+            "version": "==2.4.8"
+        },
+        "pandas": {
+            "version": "==0.20.3"
+        },
+        "pysocks": {
+            "version": "==1.6.7"
+        },
+        "python-dateutil": {
+            "version": "==2.6.1"
+        },
+        "pytz": {
+            "version": "==2017.2"
+        },
+        "pyyaml": {
+            "version": "==3.12"
+        },
+        "records": {
+            "version": "==0.5.1"
+        },
+        "requests": {
+            "version": "==2.18.4"
+        },
+        "six": {
+            "version": "==1.10.0"
+        },
+        "sqlalchemy": {
+            "version": "==1.1.13"
+        },
+        "tablib": {
+            "version": "==0.12.1"
+        },
+        "unicodecsv": {
+            "version": "==0.14.1"
+        },
+        "urllib3": {
+            "version": "==1.22"
+        },
+        "xlrd": {
+            "version": "==1.1.0"
+        },
+        "xlwt": {
+            "version": "==1.3.0"
+        }
+    },
+    "develop": {
+        "nose": {
+            "version": "==1.3.7"
+        }
+    }
     }
 
 ``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
