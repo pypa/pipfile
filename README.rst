@@ -188,7 +188,7 @@ This functionality can currently be tested with ``$ pipenv check``.
 
 ``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
 
-Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_
+Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_. Hashes are optional.
 
 .. _`new pip security features`: https://pip.pypa.io/en/stable/reference/pip_install/#hash-checking-mode
 
