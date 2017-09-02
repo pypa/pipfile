@@ -186,7 +186,7 @@ This functionality can currently be tested with ``$ pipenv check``.
         }
     }
 
-See `this example with hashes included <https://raw.githubusercontent.com/pypa/pipfile/master/examples/Pipfile.lock>`_.
+This version can be generated with ``$ pipenv lock``. See `this example with hashes included <https://raw.githubusercontent.com/pypa/pipfile/master/examples/Pipfile.lock>`_, which can be generated with ``$ pipenv lock --hashes``.
 
 ``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
 
