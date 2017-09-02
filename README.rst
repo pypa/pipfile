@@ -36,8 +36,8 @@ The details of the environment (all installed packages with pinned versions and 
 .. note:: Custom groups may be added in the future. Remember, it is easier to add features in the future than it is to remove them. The Composer community has been successful with only *default* and *development* as group options for many years. This model is being followed.
 
 
-Examples
---------
+Examples (spec #1)
+------------------
 
 Here is an example ``Pipfile`` and the resulting ``Pipfile.lock``, generated with `Pipenv <http://pipenv.org>`_, and this library:
 
