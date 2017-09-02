@@ -186,9 +186,9 @@ This functionality can currently be tested with ``$ pipenv check``.
         }
     }
 
-``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
-
 See `this example with hashes included <https://raw.githubusercontent.com/pypa/pipfile/master/examples/Pipfile.lock>`_.
+
+``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
 
 Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_. Hashes are optional, as they can cause problems using the same lockfile across different Python versions.
 
