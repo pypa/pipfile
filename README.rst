@@ -39,7 +39,7 @@ The details of the environment (all installed packages with pinned versions and 
 Examples
 --------
 
-    NOTE: This is an evolving work in progress.
+Here is an example ``Pipfile`` and the resulting ``Pipfile.lock``, generated with `Pipenv <http://pipenv.org>`, and this library:
 
 ``Pipfile``
 +++++++++++
