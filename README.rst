@@ -190,7 +190,9 @@ Generated via ``$ pipenv lock``. See `this example with hashes included <https:/
 
 ``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
 
-Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_. Hashes are optional, as they can cause problems using the same lockfile across different Python versions.
+Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_. 
+
+Hashes are optional, because they can cause problems when using the same lockfile across different Python versions (e.g. a package will have different hashes according to different Pythons).
 
 .. _`new pip security features`: https://pip.pypa.io/en/stable/reference/pip_install/#hash-checking-mode
 
