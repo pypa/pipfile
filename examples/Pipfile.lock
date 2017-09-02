@@ -16,9 +16,11 @@
     },
     "default": {
         "certifi": {
+            "hash": "sha256:54a07c09c586b0e4c619f02a5e94e36619da8e2b053e20f594348c0611803704",
             "version": "==2017.7.27.1"
         },
         "chardet": {
+            "hash": "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691",
             "version": "==3.0.4"
         },
         "django": {
@@ -27,71 +29,93 @@
             "ref": "1.11.4"
         },
         "docopt": {
+            "hash": "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491",
             "version": "==0.6.2"
         },
         "et-xmlfile": {
+            "hash": "sha256:614d9722d572f6246302c4491846d2c393c199cfa4edc9af593437691683335b",
             "version": "==1.0.1"
         },
         "idna": {
+            "hash": "sha256:8c7309c718f94b3a625cb648ace320157ad16ff131ae0af362c9f21b80ef6ec4",
             "version": "==2.6"
         },
         "jdcal": {
+            "hash": "sha256:b760160f8dc8cc51d17875c6b663fafe64be699e10ce34b6a95184b5aa0fdc9e",
             "version": "==1.3"
         },
         "numpy": {
+            "hash": "sha256:42b3cf886701bb16f3bdf2ae6c39af67b464cdd67d5fc86619ef2a876a23de27",
             "version": "==1.13.1"
         },
         "odfpy": {
+            "hash": "sha256:6f8163f8464868cff9421a058f25566e41d73c8f7e849c021b86630941b44366",
             "version": "==1.3.5"
         },
         "openpyxl": {
+            "hash": "sha256:ee7551efb70648fa8ee569c2b6a6dbbeff390cc94b321da5d508a573b90a4f17",
             "version": "==2.4.8"
         },
         "pandas": {
+            "hash": "sha256:d8635f161aadd23262ab94e0c2962dd6c727505a3c7e987e33f0172ab40a2f3a",
             "version": "==0.20.3"
         },
         "pysocks": {
+            "hash": "sha256:18842328a4e6061f084cfba70f6950d9140ecf7418b3df7cef558ebb217bac8d",
             "version": "==1.6.7"
         },
         "python-dateutil": {
+            "hash": "sha256:95511bae634d69bc7329ba55e646499a842bc4ec342ad54a8cdb65645a0aad3c",
             "version": "==2.6.1"
         },
         "pytz": {
+            "hash": "sha256:d1d6729c85acea5423671382868627129432fba9a89ecbb248d8d1c7a9f01c67",
             "version": "==2017.2"
         },
         "pyyaml": {
+            "hash": "sha256:592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab",
             "version": "==3.12"
         },
         "records": {
+            "hash": "sha256:885230f2faf2bb256c69344f7ac27b7187f76898a4706b3b0591ddf32f9f5ee3",
             "version": "==0.5.1"
         },
         "requests": {
+            "hash": "sha256:6a1b267aa90cac58ac3a765d067950e7dbbf75b1da07e895d1f594193a40a38b",
             "version": "==2.18.4"
         },
         "six": {
+            "hash": "sha256:0ff78c403d9bccf5a425a6d31a12aa6b47f1c21ca4dc2573a7e2f32a97335eb1",
             "version": "==1.10.0"
         },
         "sqlalchemy": {
+            "hash": "sha256:2a98ac87b30eaa2bee1f1044848b9590e476e7f93d033c6542e60b993a5cf898",
             "version": "==1.1.13"
         },
         "tablib": {
+            "hash": "sha256:b8cf50a61d66655229993f2ee29220553fb2c80403479f8e6de77c0c24649d87",
             "version": "==0.12.1"
         },
         "unicodecsv": {
+            "hash": "sha256:018c08037d48649a0412063ff4eda26eaa81eff1546dbffa51fa5293276ff7fc",
             "version": "==0.14.1"
         },
         "urllib3": {
+            "hash": "sha256:06330f386d6e4b195fbfc736b297f58c5a892e4440e54d294d7004e3a9bbea1b",
             "version": "==1.22"
         },
         "xlrd": {
+            "hash": "sha256:83a1d2f1091078fb3f65876753b5302c5cfb6a41de64b9587b74cefa75157148",
             "version": "==1.1.0"
         },
         "xlwt": {
+            "hash": "sha256:a082260524678ba48a297d922cc385f58278b8aa68741596a87de01a9c628b2e",
             "version": "==1.3.0"
         }
     },
     "develop": {
         "nose": {
+            "hash": "sha256:9ff7c6cc443f8c51994b34a667bbcf45afd6d945be7477b52e97516fd17c53ac",
             "version": "==1.3.7"
         }
     }
