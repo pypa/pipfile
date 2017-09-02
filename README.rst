@@ -87,6 +87,7 @@ Notes:
         "hash": {
             "sha256": "b6d9e4a95bcb62207883a8f0ea52261650017e6c50b7aa01e112111a99fd298a"
         },
+        "pipfile-spec": 1,
         "requires": {
             "python_version": "2.7"
         },
