@@ -1,7 +1,7 @@
 Pipfile
 =======
 
-``Pipfile`` and its sister ``Pipfile.lock`` are a replacement for the existing standard `pip`_'s ``requirements.txt`` file. 
+``Pipfile`` and its sister ``Pipfile.lock`` are a replacement for the existing standard `pip`_'s ``requirements.txt`` file.
 
     WARNING: This project is under active design and development. Nothing is set in stone at this point of time.
 
@@ -65,7 +65,7 @@ Notes:
 
 - There will be a default ``source``.
 
-**PEP 508 Support** 
+**PEP 508 Support**
 +++++++++++++++++++
 
 .. code-block:: toml
@@ -92,7 +92,7 @@ This functionality can currently be tested with ``$ pipenv check``.
             "hash": {
                 "sha256": "b6d9e4a95bcb62207883a8f0ea52261650017e6c50b7aa01e112111a99fd298a"
             },
-            "pipfile-spec": 1,
+            "pipfile-spec": 2,
             "requires": {
                 "python_version": "2.7"
             },
@@ -190,7 +190,7 @@ Generated via ``$ pipenv lock``. See `this example with hashes included <https:/
 
 ``Pipfile.lock`` is always to be generated and is not to be modified or constructed by a user.
 
-Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_. 
+Do note how the versions of each dependency are recursively frozen and a hash gets computed so that you can take advantage of `new pip security features`_.
 
 Hashes are optional, because they can cause problems when using the same lockfile across different Python versions (e.g. a package will have different hashes according to different Pythons).
 
