@@ -76,7 +76,7 @@ class Pipfile(object):
     def find(max_depth=3):
         """Returns the path of a Pipfile in parent directories."""
         i = 0
-        for c, d, f in walk_up(os.getcwd()):
+        for c, d, f in os.walk(os.getcwd(), topdown=False):
             i += 1
 
             if i < max_depth and 'Pipfile' in f:
