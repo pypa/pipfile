@@ -77,11 +77,11 @@ class Pipfile(object):
         """Returns the path of a Pipfile in parent directories."""
         i = 0
         for c, d, f in os.walk(os.getcwd(), topdown=False):
-            i += 1
-
-            if i < max_depth and 'Pipfile' in f:
+            if i > max_depth:
+                raise RuntimeError('No Pipfile found!')
+            elif 'Pipfile' in f:
                 return os.path.join(c, 'Pipfile')
-        raise RuntimeError('No Pipfile found!')
+            i += 1
 
     @classmethod
     def load(klass, filename):
