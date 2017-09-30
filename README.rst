@@ -49,6 +49,7 @@ Here is an example ``Pipfile`` and the resulting ``Pipfile.lock``, generated wit
     [[source]]
     url = 'https://pypi.python.org/simple'
     verify_ssl = true
+    name = 'pypi'
 
     [requires]
     python_version = '2.7'
@@ -59,9 +60,11 @@ Here is an example ``Pipfile`` and the resulting ``Pipfile.lock``, generated wit
     django = { git = 'https://github.com/django/django.git', ref = '1.11.4', editable = true }
     "e682b37" = {file = "https://github.com/divio/django-cms/archive/release/3.4.x.zip"}
     "e1839a8" = {path = ".", editable = true}
+    pywinusb = { version = "*", os_name = "=='nt'", index="pypi"}
 
     [dev-packages]
     nose = '*'
+    unittest2 = {version = ">=1.0,<3.0", markers="python_version < '2.7.9' or (python_version >= '3.0' and python_version < '3.4')"}
 
 Notes:
 
@@ -74,8 +77,8 @@ Notes:
 
     # Support for all PEP 508 markers
     [requires]
-    python_full_version = '3.6.0b1'
 
+    python_full_version = '3.6.0b1'
     platform = 'windows'
 
 ``requires`` utilizes  `PEP 508`_ ``marker =  'specifier'`` markers. This functionality may not be readily used, as it is only to assert (and therefore abort, if appropriate) installation on certain platforms (e.g. python version, platform version).
@@ -92,7 +95,7 @@ This functionality can currently be tested with ``$ pipenv check``.
     {
         "_meta": {
             "hash": {
-                "sha256": "c260408d11ce27d3c40491ab4673fa09359584890b1e39e675a5d84e81544d08"
+                "sha256": "09da36fcc93fa9b94fbea5282d8206a9d2e13fcec27229ec62c16c134e3e760a"
             },
             "host-environment-markers": {
                 "implementation_name": "cpython",
@@ -113,6 +116,7 @@ This functionality can currently be tested with ``$ pipenv check``.
             },
             "sources": [
                 {
+                    "name": "pypi",
                     "url": "https://pypi.python.org/simple",
                     "verify_ssl": true
                 }
@@ -237,6 +241,14 @@ This functionality can currently be tested with ``$ pipenv check``.
                 ],
                 "version": "==2017.2"
             },
+            "pywinusb": {
+                "hashes": [
+                    "sha256:e2f5e89f7b74239ca4843721a9bda0fc99014750630c189a176ec0e1b35e86df"
+                ],
+                "index": "pypi",
+                "markers": "os_name == 'nt'",
+                "version": "==0.4.2"
+            },
             "pyyaml": {
                 "hashes": [
                     "sha256:3262c96a1ca437e7e4763e2843746588a965426550f3797a79fca9c6199c431f",
@@ -311,6 +323,20 @@ This functionality can currently be tested with ``$ pipenv check``.
             }
         },
         "develop": {
+            "argparse": {
+                "hashes": [
+                    "sha256:c31647edb69fd3d465a847ea3157d37bed1f95f19760b11a47aa91c04b666314",
+                    "sha256:62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
+                ],
+                "version": "==1.4.0"
+            },
+            "linecache2": {
+                "hashes": [
+                    "sha256:e78be9c0a0dfcbac712fe04fbf92b96cddae80b1b842f24248214c8496f006ef",
+                    "sha256:4b26ff4e7110db76eeb6f5a7b64a82623839d595c2038eeda662f2a2db78e97c"
+                ],
+                "version": "==1.0.0"
+            },
             "nose": {
                 "hashes": [
                     "sha256:dadcddc0aefbf99eea214e0f1232b94f2fa9bd98fa8353711dacb112bfcbbb2a",
@@ -318,9 +344,32 @@ This functionality can currently be tested with ``$ pipenv check``.
                     "sha256:f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98"
                 ],
                 "version": "==1.3.7"
+            },
+            "six": {
+                "hashes": [
+                    "sha256:832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb",
+                    "sha256:70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+                ],
+                "version": "==1.11.0"
+            },
+            "traceback2": {
+                "hashes": [
+                    "sha256:8253cebec4b19094d67cc5ed5af99bf1dba1285292226e98a31929f87a5d6b23",
+                    "sha256:05acc67a09980c2ecfedd3423f7ae0104839eccb55fc645773e1caa0951c3030"
+                ],
+                "version": "==1.4.0"
+            },
+            "unittest2": {
+                "hashes": [
+                    "sha256:13f77d0875db6d9b435e1d4f41e74ad4cc2eb6e1d5c824996092b3430f088bb8",
+                    "sha256:22882a0e418c284e1f718a822b3b022944d53d2d908e1690b319a9d3eb2c0579"
+                ],
+                "markers": "python_version < '2.7.9' or (python_version >= '3.0' and python_version < '3.4')",
+                "version": "==1.1.0"
             }
         }
     }
+
 
 
 This `example <https://github.com/pypa/pipfile/tree/master/examples>`_ was generated with ``$ pipenv lock``.
