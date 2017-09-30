@@ -16,6 +16,7 @@ def format_full_version(info):
     return version
 
 
+
 class PipfileParser(object):
     def __init__(self, filename='Pipfile'):
         self.filename = filename
@@ -37,7 +38,7 @@ class PipfileParser(object):
 
         # Load the default configuration.
         default_config = {
-            u'source': [{u'url': u'https://pypi.python.org/simple', u'verify_ssl': True}],
+            u'source': [{u'url': u'https://pypi.python.org/simple', u'verify_ssl': True, 'name': "pypi"}],
             u'packages': {},
             u'requires': {},
             u'dev-packages': {}
@@ -107,8 +108,7 @@ class Pipfile(object):
         """Returns a JSON representation of the Pipfile."""
         data = self.data
         data['_meta']['hash'] = {"sha256": self.hash}
-        data['_meta']['pipfile-spec'] = 2
-        # return _json.dumps(data)
+        data['_meta']['pipfile-spec'] = 6
         return json.dumps(data, indent=4, separators=(',', ': '))
 
     def assert_requirements(self):
