@@ -36,7 +36,7 @@ The details of the environment (all installed packages with pinned versions and 
 .. note:: Custom groups may be added in the future. Remember, it is easier to add features in the future than it is to remove them. The Composer community has been successful with only *default* and *development* as group options for many years. This model is being followed.
 
 
-Examples (spec v2)
+Examples (spec v6)
 ------------------
 
 Here is an example ``Pipfile`` and the resulting ``Pipfile.lock``, generated with `Pipenv <http://pipenv.org>`_, and this library:
@@ -57,6 +57,8 @@ Here is an example ``Pipfile`` and the resulting ``Pipfile.lock``, generated wit
     requests = { extras = ['socks'] }
     records = '>0.5.0'
     django = { git = 'https://github.com/django/django.git', ref = '1.11.4', editable = true }
+    "e682b37" = {file = "https://github.com/divio/django-cms/archive/release/3.4.x.zip"}
+    "e1839a8" = {path = ".", editable = true}
 
     [dev-packages]
     nose = '*'
