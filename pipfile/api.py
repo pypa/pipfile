@@ -1,11 +1,10 @@
+import os
+import sys
 import toml
-
-import codecs
 import json
+import codecs
 import hashlib
 import platform
-import sys
-import os
 
 
 def format_full_version(info):
@@ -14,7 +13,6 @@ def format_full_version(info):
     if kind != 'final':
         version += kind[0] + str(info.serial)
     return version
-
 
 
 class PipfileParser(object):
@@ -38,7 +36,8 @@ class PipfileParser(object):
 
         # Load the default configuration.
         default_config = {
-            u'source': [{u'url': u'https://pypi.python.org/simple', u'verify_ssl': True, 'name': "pypi"}],
+            u'source': [{u'url': u'https://pypi.python.org/simple',
+                         u'verify_ssl': True, 'name': "pypi"}],
             u'packages': {},
             u'requires': {},
             u'dev-packages': {}
@@ -77,11 +76,13 @@ class Pipfile(object):
     def find(max_depth=3):
         """Returns the path of a Pipfile in parent directories."""
         i = 0
-        for c, d, f in os.walk(os.getcwd(), topdown=False):
+        exclude_dirs = ('.', '__')
+        for dirpath, dirs, files in os.walk(os.getcwd(), topdown=True):
+            dirs[:] = [d for d in dirs if not d.startswith(exclude_dirs)]
             if i > max_depth:
                 raise RuntimeError('No Pipfile found!')
-            elif 'Pipfile' in f:
-                return os.path.join(c, 'Pipfile')
+            elif 'Pipfile' in files:
+                return os.path.join(dirpath, 'Pipfile')
             i += 1
 
     @classmethod
@@ -116,7 +117,8 @@ class Pipfile(object):
 
         # Support for 508's implementation_version.
         if hasattr(sys, 'implementation'):
-            implementation_version = format_full_version(sys.implementation.version)
+            implementation_version = format_full_version(
+                sys.implementation.version)
         else:
             implementation_version = "0"
 
@@ -147,7 +149,8 @@ class Pipfile(object):
                 try:
                     assert lookup[marker] == specifier
                 except AssertionError:
-                    raise AssertionError('Specifier {!r} does not match {!r}.'.format(marker, specifier))
+                    raise AssertionError('Specifier {!r} does not match '
+                                         '{!r}.'.format(marker, specifier))
 
 
 def load(pipfile_path=None):
