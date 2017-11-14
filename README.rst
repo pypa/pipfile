@@ -57,12 +57,13 @@ Here is a complex, comprehensive example ``Pipfile`` and the resulting ``Pipfile
     [packages]
     requests = { extras = ['socks'] }
     records = '>0.5.0'
-    django = { git = 'https://github.com/django/django.git', ref = '1.11.4', editable = true }
+    django = "*"
     "e682b37" = {file = "https://github.com/divio/django-cms/archive/release/3.4.x.zip"}
     "e1839a8" = {path = ".", editable = true}
     pywinusb = { version = "*", os_name = "=='nt'", index="pypi"}
 
     [dev-packages]
+    django = { git = 'https://github.com/django/django.git', ref = '1.11.4', editable = true }
     nose = '*'
     unittest2 = {version = ">=1.0,<3.0", markers="python_version < '2.7.9' or (python_version >= '3.0' and python_version < '3.4')"}
 
