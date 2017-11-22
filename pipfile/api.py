@@ -29,7 +29,7 @@ class PipfileParser(object):
         self.requirements = []
 
     def __repr__(self):
-        return '<PipfileParser path={0!r}'.format(self.filename)
+        return '<PipfileParser path={0!r}>'.format(self.filename)
 
     def parse(self):
         # Open the Pipfile.
