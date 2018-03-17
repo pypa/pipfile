@@ -69,7 +69,6 @@ class PipfileParser(object):
         parsed_toml = self.inject_environment_variables(toml.loads(content))
 
         # Load the Pipfile's configuration.
-        config.update(toml.loads(content))
         config.update(parsed_toml)
 
         # Structure the data for output.
