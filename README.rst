@@ -3,7 +3,7 @@ Pipfile: the replacement for `requirements.txt`
 
 ``Pipfile`` and its sister ``Pipfile.lock`` are a replacement for the existing standard `pip`_'s ``requirements.txt`` file.
 
-    WARNING: This project is under active design and development. Nothing is set in stone at this point of time.
+    WARNING: This project is under active design and development. Nothing is set in stone at this point in time.
 
 This repository contains the design specification of the ``Pipfile`` format, as well as (soon) an implementation of a parser for the specification which can be used by `pip`_ and any other consumer (e.g. `Pipenv`_), once the design (including the form of a ``Pipfile`` itself) has been built out and finalized.
 
