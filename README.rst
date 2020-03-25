@@ -439,7 +439,7 @@ Documentation
 
 The `documentation`_ for this project will, eventually, reside at pypi.org.
 
-.. _`documentation`: https://pipfile.pypa.io/
+.. _`documentation`: https://pipenv.readthedocs.io/en/latest/
 
 
 Discussion
