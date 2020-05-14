@@ -8,11 +8,11 @@ Pipfile: the replacement for `requirements.txt`
 This repository contains the design specification of the ``Pipfile`` format, as well as (soon) an implementation of a parser for the specification which can be used by `pip`_ and any other consumer (e.g. `Pipenv`_), once the design (including the form of a ``Pipfile`` itself) has been built out and finalized.
 
 .. _`pip`: https://pip.pypa.io/en/stable/
-.. _`pipenv`: http://pipenv.org
+.. _`pipenv`: https://pipenv.pypa.io/en/stable/
 
 -------------------------
 
-To use Pipfile today, try out `Pipenv <http://pipenv.org>`_. It contains the current reference implementation.
+To use Pipfile today, try out `Pipenv <https://pipenv.pypa.io/en/stable/>`_. It contains the current reference implementation.
 
 
 The Concept
