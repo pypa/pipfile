@@ -453,6 +453,6 @@ If you run into bugs, you can file them in our `issue tracker`_. You can also jo
 Code of Conduct
 ---------------
 
-Everyone interacting in the pipfile project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the `PyPA Code of Conduct`_.
+Everyone interacting in the pipfile project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the `PSF Code of Conduct`_.
 
-.. _`PyPA Code of Conduct`: https://www.pypa.io/en/latest/code-of-conduct/
+.. _`PSF Code of Conduct`: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
