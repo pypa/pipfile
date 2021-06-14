@@ -419,7 +419,7 @@ Useful Links
 - `Basic Concept Gist`_ (fork of @dstufft's)
 
 .. _`Pipenv`: http://pipenv.org
-.. _`Basic Concept Gist`: https://gist.github.com/kennethreitz42/4745d35e57108f5b766b8f6ff396de85
+.. _`Basic Concept Gist`: https://gist.github.com/kennethreitz/4745d35e57108f5b766b8f6ff396de85
 .. _`pypa/pip#1795`: https://github.com/pypa/pip/issues/1795
 
 Inspirations
