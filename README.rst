@@ -26,7 +26,7 @@ The Concept
 * A ``Pipfile`` is inherently ordered.
 
 * Existing requirements files tend to proliferate into multiple files - e.g. ``dev-requirements.txt``, ``test-requirements.txt``, etc. - but a ``Pipfile`` will allow seamlessly specifying groups of dependencies in one place.
-  * This will be surfaced as only two built-in groups (*default* &     *development*). (see note below)
+  This will be surfaced as only two built-in groups (*default* & *development*). (see note below)
 
 * Fully specified (and *deterministic*) environments in the form of ``Pipfile.lock``.
   A deployed application can then be completely redeployed with the same exact versions of all recursive dependencies, by referencing the ``Pipfile.lock`` file.
@@ -445,7 +445,7 @@ The `documentation`_ for this project will, eventually, reside at pypi.org.
 Discussion
 ----------
 
-If you run into bugs, you can file them in our `issue tracker`_. You can also join ``#pypa`` on Freenode to ask questions or get involved.
+If you run into bugs, you can file them in our `issue tracker`_. You can also join ``#pypa`` on Libera Chat to ask questions or get involved.
 
 .. _`issue tracker`: https://github.com/pypa/pipfile/issues
 
