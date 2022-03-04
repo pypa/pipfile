@@ -1,19 +1,18 @@
 Pipfile: the replacement for `requirements.txt`
 ===============================================
 
-``Pipfile`` and its sister ``Pipfile.lock`` are a replacement for the existing standard `pip`_'s ``requirements.txt`` file.
+``Pipfile`` and its sister ``Pipfile.lock`` are designed as a proposed replacement for an existing format: `pip`_'s ``requirements.txt`` file.
 
-    WARNING: This project is under active design and development. Nothing is set in stone at this point in time.
+    WARNING: This format is still under active design and development. Nothing is set in stone at this point in time.
 
-This repository contains the design specification of the ``Pipfile`` format, as well as (soon) an implementation of a parser for the specification which can be used by `pip`_ and any other consumer (e.g. `Pipenv`_), once the design (including the form of a ``Pipfile`` itself) has been built out and finalized.
+This repository contains the design specification of the ``Pipfile`` format, as well as a proposed implementation of a parser for the specification which can be used by `Pipenv`_ and, in the future, any other consumer (e.g. `pip`_), once the design (including the form of a ``Pipfile`` itself) has been built out and finalized.
 
 .. _`pip`: https://pip.pypa.io/en/stable/
 .. _`pipenv`: https://pipenv.pypa.io/en/stable/
 
 -------------------------
 
-To use Pipfile today, try out `Pipenv <https://pipenv.pypa.io/en/stable/>`_. It contains the current reference implementation.
-
+Today, `Pipenv <https://pipenv.pypa.io/en/stable/>`_ uses Pipfile and contains the current reference implementation.
 
 The Concept
 -----------
