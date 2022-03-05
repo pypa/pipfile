@@ -133,7 +133,7 @@ class Pipfile(object):
         return json.dumps(data, indent=4, separators=(',', ': '))
 
     def assert_requirements(self):
-        """"Asserts PEP 508 specifiers."""
+        """Asserts PEP 508 specifiers."""
 
         # Support for 508's implementation_version.
         if hasattr(sys, 'implementation'):
