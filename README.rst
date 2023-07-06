@@ -1,4 +1,4 @@
-Pipfile: the replacement for `requirements.txt`
+Pipfile: a proposed replacement for `requirements.txt`
 ===============================================
 
 ``Pipfile`` and its sister ``Pipfile.lock`` are designed as a proposed replacement for an existing format: `pip`_'s ``requirements.txt`` file.
@@ -436,9 +436,7 @@ Inspirations
 Documentation
 -------------
 
-The `documentation`_ for this project will, eventually, reside at pypi.org.
-
-.. _`documentation`: https://pipfile.pypa.io/
+The documentation for this project can be found at https://pipfile.pypa.io/
 
 
 Discussion
