@@ -417,7 +417,6 @@ Useful Links
 - `pypa/pip#1795`_: Requirements 2.0
 - `Basic Concept Gist`_ (fork of @dstufft's)
 
-.. _`Pipenv`: http://pipenv.org
 .. _`Basic Concept Gist`: https://gist.github.com/kennethreitz/4745d35e57108f5b766b8f6ff396de85
 .. _`pypa/pip#1795`: https://github.com/pypa/pip/issues/1795
 
