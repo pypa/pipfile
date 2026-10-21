@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pipfile"
+dynamic = ["version"]
+readme = "README.rst"
+authors = [
+    { name = "Kenneth Reitz and individual contributors", email = "me@kennethreitz.org" },
+]
+license = "Apache-2.0 OR BSD-2-Clause"
+license-files = ["LICENSE", "LICENSE.APACHE", "LICENSE.BSD"]
+requires-python = ">=3.3"
+dependencies = ["toml"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/pypa/pipfile"
+
+[tool.setuptools]
+packages = ["pipfile"]
+
+[tool.setuptools.dynamic]
+version = { attr = "pipfile.__about__.__version__" }
